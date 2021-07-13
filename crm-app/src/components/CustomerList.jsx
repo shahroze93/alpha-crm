@@ -9,8 +9,6 @@ const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers?api_key=${AIRTABLE_KEY}`
 
 function CustomerList() {
-  // console.log(URL)
-  // console.log(AIRTABLE_KEY, AIRTABLE_BASE);
   const [customers, setCustomers] = useState([]);
   
   useEffect(() => {
@@ -27,11 +25,10 @@ function CustomerList() {
 
   return (
     <div>
-      {customers.map((customer) => {
-        return <Link to={`/customer/${customer.id}`} key={customer.id}>
-          <h3>{customer.fields?.name_company}</h3>
-          {/* <img src={customer.fields?.client_logo} /> */}
-          </Link>
+      {customers.map((info) => {
+        return <Link to={`/customers/${info.id}`} key={info.id}>
+          <h3>{info.fields.name_company}</h3>
+        </Link>
       })}
     </div>
   );

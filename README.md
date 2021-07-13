@@ -133,7 +133,7 @@ Here is a data sample from the communications table. I will access this table vi
 | July 15 | Get, Post and Delete cont'd /Basic CSS      | Incomplete |
 | July 16 | Grid, flexbox, responsive CSS / MVP         | Incomplete |
 | July 17 | additional CSS / Post-MVP                   | Incomplete |
-| July 19 | Presentations                               | Incomplete |
+| July 20 | Presentations                               | Incomplete |
 
 ## Timeframes
 

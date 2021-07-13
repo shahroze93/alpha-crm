@@ -1,21 +1,20 @@
 import "./App.css";
 import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import CustomerList from "./components/CustomerList";
-import CustomerDetail from "./components/CustomerDetail";
-import NewCustomer from "./components/NewCustomer.jsx";
-import EditCustomer from "./components/EditCustomer";
+import CustomerDetail from "./components/CustomerDetail"
+import NewCustomer from "./components/NewCustomer"
+// import CustomerList from "./components/CustomerList";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
       <br />
+      WELCOME TO ALPHA CRM
       <Route exact path="/">
-      <h1>Alpha CRM</h1>
+        <CustomerList />
       </Route>
-      <CustomerList />
       <Route path="/new">
         <NewCustomer />
       </Route>
@@ -25,5 +24,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
