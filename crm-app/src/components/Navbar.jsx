@@ -6,7 +6,11 @@ function Navbar () {
     <nav>
       <Link to="/">ALL CUSTOMERS</Link>
       <br />
-      <Link to="/new">New Customer</Link>
+      <Link to="/contacts">All Contacts</Link>
+      <br />
+      <Link to="/newCustomer">New Customer</Link>
+      <br />
+      <Link to="/newContact">New Contact</Link>
     </nav>
   )
 }

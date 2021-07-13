@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import CustomerList from "./components/CustomerList";
 import CustomerDetail from "./components/CustomerDetail"
 import NewCustomer from "./components/NewCustomer"
-// import CustomerList from "./components/CustomerList";
+import ContactList from "./components/ContactList"
 
 function App() {
   return (
@@ -15,11 +15,14 @@ function App() {
       <Route exact path="/">
         <CustomerList />
       </Route>
-      <Route path="/new">
+      <Route path="/newCustomer">
         <NewCustomer />
       </Route>
       <Route path="/customers/:id">
         <CustomerDetail />
+      </Route>
+      <Route exact path="/contacts">
+        <ContactList />
       </Route>
     </div>
   );
