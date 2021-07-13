@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams, useHistory } from "react-router";
+import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
@@ -11,7 +11,7 @@ const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`;
 export default function CustomerDetail() {
   const [customer, setCustomer] = useState({});
   const { id } = useParams();
-  console.log(id)
+  // console.log(id)
 
   useEffect(() => {
     fetchCustomer();
