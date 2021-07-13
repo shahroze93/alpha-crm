@@ -55,24 +55,26 @@ Here is a data sample from the contacts table. I will access this table via get 
 
 ```
 {
-            "id": "recgfBEQyuflWGFnP",
+    "records": [
+        {
+            "id": "recpOqhbgZREnyOdU",
             "fields": {
-                "client_logo": "https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png",
-                "contacts": [
-                    "recpOqhbgZREnyOdU"
+                "designation": "Purchase Manager",
+                "email": "janedoe@email.com",
+                "name_contact": "Jane Doe",
+                "name_company": [
+                    "recgfBEQyuflWGFnP"
                 ],
-                "name_company": "Dell",
-                "address": "123 Street",
-                "zipcode": 12345,
-                "customer_type": "USA",
-                "account_manager": "John Doe",
-                "state": "NY",
-                "communication": [
-                    "rec9dJ0Z4V4nNbUsU"
+                "phone": "123456789",
+                "name_company (from clients)": [
+                    "Dell"
                 ]
             },
-            "createdTime": "2021-07-13T10:34:55.000Z"
+            "createdTime": "2021-07-13T10:44:03.000Z"
         }
+    ],
+    "offset": "recpOqhbgZREnyOdU"
+}
 
 ```
 
@@ -82,25 +84,24 @@ Here is a data sample from the communications table. I will access this table vi
 {
     "records": [
         {
-            "id": "recgfBEQyuflWGFnP",
+            "id": "rec9dJ0Z4V4nNbUsU",
             "fields": {
-                "client_logo": "https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png",
-                "contacts": [
-                    "recpOqhbgZREnyOdU"
+                "name_company": [
+                    "recgfBEQyuflWGFnP"
                 ],
-                "name_company": "Dell",
-                "address": "123 Street",
-                "zipcode": 12345,
-                "customer_type": "USA",
-                "account_manager": "John Doe",
-                "state": "NY",
-                "communication": [
-                    "rec9dJ0Z4V4nNbUsU"
+                "notes": "Positive meeting. Will buy our software",
+                "contact_method": "phone",
+                "topic_discussed": "CRM purchase",
+                "expected_revenue": 10000,
+                "name_contacted": "Jane Doe",
+                "name_company (from clients)": [
+                    "Dell"
                 ]
             },
-            "createdTime": "2021-07-13T10:34:55.000Z"
+            "createdTime": "2021-07-13T10:44:05.000Z"
         }
-    ]
+    ],
+    "offset": "rec9dJ0Z4V4nNbUsU"
 }
 
 ```
@@ -127,7 +128,7 @@ Here is a data sample from the communications table. I will access this table vi
 
 | Day     | Deliverable                                 | Status     |
 | ------- | ------------------------------------------- | ---------- |
-| July 13 | Proposal Approval / Airtable Setup          | Incomplete |
+| July 13 | Proposal Approval / Airtable Setup          | Complete   |
 | July 14 | Component Creation / Get, post, Delete Data | Incomplete |
 | July 15 | Get, Post and Delete cont'd /Basic CSS      | Incomplete |
 | July 16 | Grid, flexbox, responsive CSS / MVP         | Incomplete |
