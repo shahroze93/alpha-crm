@@ -1,0 +1,24 @@
+Components:
+
+CustomerList
+CustomerDetail
+NewCustomer
+EditCustomer
+
+ContactList
+NewCustomer
+EditCustomer
+
+CommList
+NewComm
+EditComm
+
+Navbar
+Footer
+
+import NewContact from "./components/NewContact";
+import EditContact from "./components/EditContact";
+import CommList from "./components/CommList";
+import NewComm from "./components/NewComm";
+import ContactList from "./components/ContactList";
+import EditComm from "./components/EditComm";
