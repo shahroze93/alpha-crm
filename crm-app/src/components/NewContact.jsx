@@ -39,7 +39,7 @@ const NewContact = () => {
 
   return (
     <div>
-      NEW
+      NEW CONTACT FORM
       <form onSubmit={handleSubmit}>
         <label>Contact Name</label>
         <input type="text" value={name_contact} onChange={(e) => setNameContact(e.target.value)} />
@@ -52,6 +52,9 @@ const NewContact = () => {
         <br />
         <label>Email</label>
         <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <br />
+        <label>Company Name</label>
+        <input type="text" value={name_company_customers} onChange={(e) => setCompanyName(e.target.value)} />
         <br />
         <button>Add Contact</button>
       </form>

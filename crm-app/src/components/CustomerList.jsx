@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 
-const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers?api_key=${AIRTABLE_KEY}`
+const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`
 
 function CustomerList() {
   const [customers, setCustomers] = useState([]);

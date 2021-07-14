@@ -5,7 +5,7 @@ import axios from "axios";
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 
-const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/contacts?api_key=${AIRTABLE_KEY}`
+const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/contacts`
 
 function ContactList() {
   const [contacts, setContacts] = useState([]);

@@ -44,7 +44,7 @@ const NewCustomer = () => {
 
   return (
     <div>
-      NEW
+      NEW CUSTOMER FORM
       <form onSubmit={handleSubmit}>
         <label>Company Name</label>
         <input type="text" value={name_company} onChange={(e) => setNameCompany(e.target.value)} />
