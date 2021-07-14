@@ -16,7 +16,7 @@ const NewComm = (props) => {
   const [topic_discussed, setTopicDiscussed] = useState("");
   const [expected_revenue, setExpectedRevenue] = useState(0);
   const [notes, setNotes] = useState("");
-  // let history = useHistory();
+  let history = useHistory();
   
   const [droplist, setDroplist] = useState([]);
   
@@ -56,7 +56,7 @@ const NewComm = (props) => {
     );
     console.log(res);
     setNameContacted("");
-    props.fetchCustomer();
+    // props.fetchCustomer();
   };
 
   return (
@@ -66,10 +66,12 @@ const NewComm = (props) => {
         <label>Person Contacted</label>
         <input type="text" value={name_contacted} onChange={(e) => setNameContacted(e.target.value)} />
         <br />
+        <label>Company Name</label>
         <select onChange={handleCompanyChange}> 
         <option value="⬇️ Select a Company ⬇️"> -- Select Company -- </option>
           {droplist.map((company) => <option key={company.id} value={company.id}>{company.fields.name_company}</option>)}
         </select>
+        <br />
         <label>Method of Contact</label>
         <input type="text" value={contact_method} onChange={(e) => setContactMethod(e.target.value)} />
         <br />

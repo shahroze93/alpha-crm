@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import { Link } from "react-router-dom"
+import NewCustomer from './NewCustomer';
   
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
@@ -30,6 +31,7 @@ function CustomerList() {
           <h3>{info.fields.name_company}</h3>
         </Link>
       })}
+      <NewCustomer />
     </div>
   );
 }

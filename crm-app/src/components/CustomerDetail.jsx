@@ -3,19 +3,21 @@ import axios from "axios";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import CustomerInfo from "./CustomerInfo";
-import CommList from "./CommList";
 import NewComm from "./NewComm";
 import NewContact from "./NewContact";
+import CommInfo from "./CommInfo";
 
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`;
 const contactsURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/contacts`;
+const commsURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/communication`;
 
 export default function CustomerDetail() {
   const [customer, setCustomer] = useState({});
   const [contacts, setContacts] = useState([]);
+  const [comm, setComms] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -32,7 +34,10 @@ export default function CustomerDetail() {
       setCustomer(res.data);
       if (res.data.fields.contacts) {
         getContacts(res.data.fields.contacts);
-      }
+      };
+      if (res.data.fields.communication) {
+        getComms(res.data.fields.communication)
+      };
   };
 
     const getContacts = async (contactArray) => {
@@ -50,6 +55,21 @@ export default function CustomerDetail() {
   
 console.log(contacts)
 
+const getComms = async (commsArray) => {
+  commsArray.forEach (async comm => { 
+  const URL = `${commsURL}/${comm}`;
+  const res = await axios.get(URL, {
+    headers: {
+      Authorization: `Bearer ${AIRTABLE_KEY}`,
+    },
+  });
+    console.log(res.data)
+    setComms(prevState => ([...prevState, res.data]));
+  })
+};
+  
+console.log(comm)
+  
   return (
     <div>
       <h2>{customer.fields?.name_company}</h2>
@@ -70,10 +90,17 @@ console.log(contacts)
       <Link to="/">HOMEPAGE</Link>
       {contacts.map((info) => {
         return (
-          <CustomerInfo info={info} />
-        )
-      })}
+          <CustomerInfo info={info} key={info.id} />
+        )})}
       <NewContact fetchCustomer={fetchCustomer} />
+      <br />
+      {comm.map((info) => {
+          return (
+        <CommInfo info={info} key={info.id} />
+        );
+      }
+      )}
+      <NewComm fetchCustomer={fetchCustomer} />
     </div>
   );
 }

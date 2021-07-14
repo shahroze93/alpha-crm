@@ -28,7 +28,7 @@ function ContactList() {
       Contact List
       {contacts.map((info) => {
           return (
-            <CustomerInfo info={info} />
+            <CustomerInfo info={info} key={info.id} />
         );
       }
       )}
