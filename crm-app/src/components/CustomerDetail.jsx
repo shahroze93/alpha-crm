@@ -41,6 +41,8 @@ export default function CustomerDetail() {
       <p>{customer.fields?.customer_type}</p>
       <strong>Account Manager:</strong>
       <p>{customer.fields?.account_manager}</p>
+      <Link to={`/editCustomer/${id}`}>Edit Customer</Link>
+      <br />
       <Link to="/">HOMEPAGE</Link>
     </div>
   );
