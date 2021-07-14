@@ -29,7 +29,7 @@ const NewCustomer = () => {
       customer_type,
       account_manager,
     };
-    console.log(fields)
+    // console.log(fields)
     const res = await axios.post(
       URL,
       { fields },

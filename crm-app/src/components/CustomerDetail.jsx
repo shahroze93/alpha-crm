@@ -48,12 +48,12 @@ export default function CustomerDetail() {
         Authorization: `Bearer ${AIRTABLE_KEY}`,
       },
     });
-      console.log(res.data)
+      // console.log(res.data)
       setContacts(prevState => ([...prevState, res.data]));
     })
   };
   
-console.log(contacts)
+// console.log(contacts)
 
 const getComms = async (commsArray) => {
   commsArray.forEach (async comm => { 
@@ -63,12 +63,12 @@ const getComms = async (commsArray) => {
       Authorization: `Bearer ${AIRTABLE_KEY}`,
     },
   });
-    console.log(res.data)
+    // console.log(res.data)
     setComms(prevState => ([...prevState, res.data]));
   })
 };
   
-console.log(comm)
+// console.log(comm)
   
   return (
     <div>
@@ -88,15 +88,15 @@ console.log(comm)
       <Link to={`/editCustomer/${id}`}>Edit Customer</Link>
       <br />
       <Link to="/">HOMEPAGE</Link>
-      {contacts.map((info) => {
+      {contacts.map((info, index) => {
         return (
-          <CustomerInfo info={info} key={info.id} />
+          <CustomerInfo info={info} key={index} />
         )})}
       <NewContact fetchCustomer={fetchCustomer} />
       <br />
-      {comm.map((info) => {
+      {comm.map((info, index) => {
           return (
-        <CommInfo info={info} key={info.id} />
+        <CommInfo info={info} key={index} />
         );
       }
       )}

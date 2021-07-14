@@ -28,7 +28,7 @@ const NewComm = (props) => {
     const res = await axios.get(customerURL, {
       headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
     });
-    console.log(res.data.records);
+    // console.log(res.data.records);
     setDroplist(res.data.records);
   }
 
@@ -56,7 +56,7 @@ const NewComm = (props) => {
     );
     console.log(res);
     setNameContacted("");
-    // props.fetchCustomer();
+    props.fetchCustomer();
   };
 
   return (

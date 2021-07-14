@@ -11,7 +11,7 @@ const customerURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`;
 const NewContact = (props) => {
   const [name_contact, setNameContact] = useState("");
   const [designation, setDesignation] = useState("");
-  const [phone, setPhone] = useState(0);
+  const [phone, setPhone] = useState(1);
   const [email, setEmail] = useState("");
   const [name_company, setNameCompany] = useState([]);
   const [droplist, setDroplist] = useState([]);
@@ -25,7 +25,7 @@ const NewContact = (props) => {
     const res = await axios.get(customerURL, {
       headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
     });
-    console.log(res.data.records);
+    // console.log(res.data.records);
     setDroplist(res.data.records);
   }
 

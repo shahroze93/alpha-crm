@@ -1,5 +1,5 @@
 function CustomerInfo(props) {
-  console.log(props)
+  // console.log(props)
   return (
     <div key={props.info.id}>
         <h4>{props.info.fields.name_contact}</h4>

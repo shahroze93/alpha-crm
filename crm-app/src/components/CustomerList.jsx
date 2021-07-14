@@ -26,6 +26,7 @@ function CustomerList() {
 
   return (
     <div>
+      All Customers
       {customers.map((info) => {
         return <Link to={`/customers/${info.id}`} key={info.id}>
           <h3>{info.fields.name_company}</h3>
