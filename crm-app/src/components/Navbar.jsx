@@ -11,8 +11,8 @@ function Navbar () {
       <Link to="/contacts">All Contacts</Link>
       <br />
       <Link to="/newCustomer">New Customer</Link>
-      <br />
-      <Link to="/editCustomer">Edit Customer</Link>
+      {/* <br />
+      <Link to="/editCustomer">Edit Customer</Link> */}
       <br />
       <Link to="/newContact">New Contact</Link>
     </nav>

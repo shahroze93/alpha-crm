@@ -6,6 +6,7 @@ import CustomerDetail from "./components/CustomerDetail"
 import NewCustomer from "./components/NewCustomer"
 import ContactList from "./components/ContactList"
 import EditCustomer from "./components/EditCustomer";
+import NewContact from "./components/NewContact";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
       </Route>
       <Route path="/newCustomer">
         <NewCustomer />
+      </Route>
+      <Route path="/newContact">
+        <NewContact />
       </Route>
       <Route path="/editCustomer/:id">
         <EditCustomer />
