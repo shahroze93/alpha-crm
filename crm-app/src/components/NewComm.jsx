@@ -8,9 +8,11 @@ const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/communication`;
 const customerURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`;
+const contactURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/contacts`;
 
 const NewComm = (props) => {
-  const [name_contacted, setNameContacted] = useState("");
+  const [contactName, setNameContacted] = useState("");
+  const [name_contacted, setNameContacted2] = useState(""); 
   const [name_company, setNameCompany] = useState(""); 
   const [contact_method, setContactMethod] = useState("");
   const [topic_discussed, setTopicDiscussed] = useState("");
@@ -36,9 +38,31 @@ const NewComm = (props) => {
     setNameCompany([e.target.value])
   }
 
+  const [droplist2, setDroplist2] = useState([]);
+  
+  useEffect(() => {
+    fetchData2();
+  }, [])
+  
+  const fetchData2 = async () => {
+    const res = await axios.get(contactURL, {
+      headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
+    });
+    // console.log(res.data.records);
+    setDroplist2(res.data.records);
+  }
+
+  fetchData2();
+
+  let handleContactChange = (e) => {
+    setNameContacted([e.target.value])
+    setNameContacted2([e.target.value])
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const fields = {
+      contactName,
       name_contacted,
       contact_method,
       topic_discussed,
@@ -56,6 +80,7 @@ const NewComm = (props) => {
     );
     console.log(res);
     setNameContacted("");
+    setNameContacted2("");
     if (res.data.id) {
       history.push(`/customers/${res.data.id}`);
     }
@@ -67,7 +92,12 @@ const NewComm = (props) => {
       NEW COMMUNICATION FORM
       <form onSubmit={handleSubmit}>
         <label>Person Contacted</label>
-        <input type="text" value={name_contacted} onChange={(e) => setNameContacted(e.target.value)} />
+        {/* <input type="text" value={name_contacted} onChange={(e) => setNameContacted(e.target.value)} />
+        <br /> */}
+        <select onChange={handleContactChange}> 
+        <option value="⬇️ Select a Contact ⬇️"> -- Select Contact -- </option>
+          {droplist2.map((contact) => <option key={contact.id} value={contact.id}>{contact.fields.name_contact} ({contact.fields.name_company_customers})</option>)}
+        </select>
         <br />
         <label>Company Name</label>
         <select onChange={handleCompanyChange}> 

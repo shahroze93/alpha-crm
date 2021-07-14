@@ -28,10 +28,18 @@ function CustomerList() {
     <div>
       All Customers
       {customers.map((info) => {
-        return <Link to={`/customers/${info.id}`} key={info.id}>
+        return (
+          <div key={info.id}>
+          <Link to={`/customers/${info.id}`} >
           <h3>{info.fields.name_company}</h3>
-        </Link>
+          <img src={info.fields.company_logo} />
+          </Link>
+            <p>Address: {info.fields.address}, {info.fields.state}, {info.fields.country}</p>
+            <p>Account Manager: {info.fields.account_manager}</p>
+          </div>
+        )
       })}
+      <br />
       <NewCustomer />
     </div>
   );
