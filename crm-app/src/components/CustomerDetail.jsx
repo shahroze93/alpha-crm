@@ -2,30 +2,54 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import CustomerInfo from "./CustomerInfo";
+import CommList from "./CommList";
+import NewComm from "./NewComm";
+import NewContact from "./NewContact";
 
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`;
+const contactsURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/contacts`;
 
 export default function CustomerDetail() {
   const [customer, setCustomer] = useState({});
+  const [contacts, setContacts] = useState([]);
   const { id } = useParams();
-  // console.log(id)
 
   useEffect(() => {
     fetchCustomer();
   }, []);
-  const fetchCustomer = async () => {
+
+    const fetchCustomer = async () => {
     const customerURL = `${URL}/${id}`;
     const res = await axios.get(customerURL, {
       headers: {
         Authorization: `Bearer ${AIRTABLE_KEY}`,
       },
     });
-    setCustomer(res.data);
+      setCustomer(res.data);
+      if (res.data.fields.contacts) {
+        getContacts(res.data.fields.contacts);
+      }
+  };
+
+    const getContacts = async (contactArray) => {
+    contactArray.forEach (async contact => { 
+    const URL = `${contactsURL}/${contact}`;
+    const res = await axios.get(URL, {
+      headers: {
+        Authorization: `Bearer ${AIRTABLE_KEY}`,
+      },
+    });
+      console.log(res.data)
+      setContacts(prevState => ([...prevState, res.data]));
+    })
   };
   
+console.log(contacts)
+
   return (
     <div>
       <h2>{customer.fields?.name_company}</h2>
@@ -44,6 +68,12 @@ export default function CustomerDetail() {
       <Link to={`/editCustomer/${id}`}>Edit Customer</Link>
       <br />
       <Link to="/">HOMEPAGE</Link>
+      {contacts.map((info) => {
+        return (
+          <CustomerInfo info={info} />
+        )
+      })}
+      <NewContact fetchCustomer={fetchCustomer} />
     </div>
   );
 }

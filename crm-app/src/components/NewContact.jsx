@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -7,22 +6,41 @@ const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/contacts`;
+const customerURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`;
 
-const NewContact = () => {
+const NewContact = (props) => {
   const [name_contact, setNameContact] = useState("");
   const [designation, setDesignation] = useState("");
   const [phone, setPhone] = useState(0);
   const [email, setEmail] = useState("");
-  const [name_company_customers, setCompanyName] = useState("");
-  let history = useHistory();
+  const [name_company, setNameCompany] = useState([]);
+
+  const [droplist, setDroplist] = useState([]);
   
-  const handleSubmit = async (e) => {
+  useEffect(() => {
+    fetchData();
+  }, [])
+  
+  const fetchData = async () => {
+    const res = await axios.get(customerURL, {
+      headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
+    });
+    console.log(res.data.records);
+    setDroplist(res.data.records);
+  }
+
+  let handleCompanyChange = (e) => {
+    setNameCompany([e.target.value])
+  }
+
+    const handleSubmit = async (e) => {
     e.preventDefault();
     const fields = {
       name_contact,
       designation,
       phone,
       email,
+      name_company
     };
     console.log(fields)
     const res = await axios.post(
@@ -34,7 +52,7 @@ const NewContact = () => {
     );
     console.log(res);
     setNameContact("");
-    history.push(`/contacts/${res.data.id}`);
+    props.fetchCustomer();
   };
 
   return (
@@ -54,8 +72,10 @@ const NewContact = () => {
         <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
         <br />
         <label>Company Name</label>
-        <input type="text" value={name_company_customers} onChange={(e) => setCompanyName(e.target.value)} />
-        <br />
+        <select onChange={handleCompanyChange}> 
+        <option value="⬇️ Select a Company ⬇️"> -- Select Company -- </option>
+          {droplist.map((company) => <option key={company.id} value={company.id}>{company.fields.name_company}</option>)}
+        </select>
         <button>Add Contact</button>
       </form>
     </div>

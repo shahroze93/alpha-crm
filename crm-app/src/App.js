@@ -8,6 +8,7 @@ import ContactList from "./components/ContactList"
 import EditCustomer from "./components/EditCustomer";
 import NewContact from "./components/NewContact";
 import CommList from "./components/CommList";
+import NewComm from "./components/NewComm";
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
       </Route>
       <Route exact path="/communication">
         <CommList />
+      </Route>
+      <Route path="/newCommunication">
+        <NewComm />
       </Route>
     </div>
   );

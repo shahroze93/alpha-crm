@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -7,26 +7,44 @@ const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/communication`;
+const customerURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`;
 
-const NewComm = () => {
+const NewComm = (props) => {
   const [name_contacted, setNameContacted] = useState("");
+  const [name_company, setNameCompany] = useState(""); 
   const [contact_method, setContactMethod] = useState("");
-  const [contact_method, setContactMethod] = useState(0);
   const [topic_discussed, setTopicDiscussed] = useState("");
-  const [expected_revenue, setExpectedRevenue] = useState("");
+  const [expected_revenue, setExpectedRevenue] = useState(0);
   const [notes, setNotes] = useState("");
-  let history = useHistory();
+  // let history = useHistory();
   
+  const [droplist, setDroplist] = useState([]);
+  
+  useEffect(() => {
+    fetchData();
+  }, [])
+  
+  const fetchData = async () => {
+    const res = await axios.get(customerURL, {
+      headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
+    });
+    console.log(res.data.records);
+    setDroplist(res.data.records);
+  }
+
+  let handleCompanyChange = (e) => {
+    setNameCompany([e.target.value])
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const fields = {
-      name_company,
-      address,
-      state,
-      zipcode,
-      country,
-      customer_type,
-      account_manager,
+      name_contacted,
+      contact_method,
+      topic_discussed,
+      expected_revenue,
+      notes,
+      name_company
     };
     console.log(fields)
     const res = await axios.post(
@@ -37,40 +55,38 @@ const NewComm = () => {
       }
     );
     console.log(res);
-    setNameCompany("");
-    history.push(`/customers/${res.data.id}`);
+    setNameContacted("");
+    props.fetchCustomer();
   };
 
   return (
     <div>
-      NEW CUSTOMER FORM
+      NEW COMMUNICATION FORM
       <form onSubmit={handleSubmit}>
-        <label>Company Name</label>
-        <input type="text" value={name_company} onChange={(e) => setNameCompany(e.target.value)} />
+        <label>Person Contacted</label>
+        <input type="text" value={name_contacted} onChange={(e) => setNameContacted(e.target.value)} />
         <br />
-        <label>Address</label>
-        <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
+        <select onChange={handleCompanyChange}> 
+        <option value="⬇️ Select a Company ⬇️"> -- Select Company -- </option>
+          {droplist.map((company) => <option key={company.id} value={company.id}>{company.fields.name_company}</option>)}
+        </select>
+        <label>Method of Contact</label>
+        <input type="text" value={contact_method} onChange={(e) => setContactMethod(e.target.value)} />
         <br />
-        <label>State</label>
-        <input type="text" value={state} onChange={(e) => setState(e.target.value)} />
+        <label>Topic of Discussion</label>
+        <input type="text" value={topic_discussed} onChange={(e) => setTopicDiscussed(e.target.value)} />
         <br />
-        <label>Zipcode</label>
-        <input type="text" value={zipcode} onChange={(e) => setZipcode(e.target.value)} />
+        <label>Expected Revenue</label>
+        <input type="number" value={expected_revenue} onChange={(e) => setExpectedRevenue(e.target.valueAsNumber)} />
         <br />
-        <label>Country</label>
-        <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} />
+        <label>Notes</label>
+        <input type="text" value={notes} onChange={(e) => setNotes(e.target.value)} />
         <br />
-        <label>Customer Type</label>
-        <input type="text" value={customer_type} onChange={(e) => setCustomerType(e.target.value)} />
-        <br />
-        <label>Account Manager</label>
-        <input type="text" value={account_manager} onChange={(e) => setAccountManager(e.target.value)} />
-        <br />
-        <button>Add Customer</button>
+        <button>Add Comm</button>
       </form>
     </div>
   );
 }
 
-export default NewCustomer
+export default NewComm
 

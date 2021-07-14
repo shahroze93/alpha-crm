@@ -16,10 +16,13 @@ EditComm
 Navbar
 Footer
 
-import NewContact from "./components/NewContact";
-import EditContact from "./components/EditContact";
-import CommList from "./components/CommList";
-import NewComm from "./components/NewComm";
-import ContactList from "./components/ContactList";
-import EditComm from "./components/EditComm";
-import EditCustomer from "./components/EditCustomer";
+
+
+Customer Details
+<div key={info.id}>
+<h4>{info.fields.name_contact}</h4>
+<p>{info.fields.designation}</p>
+<p>{info.fields.phone}</p>
+<p>{info.fields.email}</p>
+<p>{info.fields.name_company_customers}</p>
+</div>

@@ -56,7 +56,7 @@ const NewCustomer = () => {
         <input type="text" value={state} onChange={(e) => setState(e.target.value)} />
         <br />
         <label>Zipcode</label>
-        <input type="text" value={zipcode} onChange={(e) => setZipcode(e.target.value)} />
+        <input type="number" value={zipcode} onChange={(e) => setZipcode(e.target.valueAsNumber)} />
         <br />
         <label>Country</label>
         <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} />
