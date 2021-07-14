@@ -52,6 +52,9 @@ const NewContact = (props) => {
     );
     console.log(res);
     setNameContact("");
+    if (res.data.id) {
+      history.push(`/customers/${res.data.id}`);
+    }
     props.fetchCustomer();
   };
 

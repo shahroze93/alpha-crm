@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import CustomerInfo from "./CustomerInfo";
+import ContactInfo from "./CustomerInfo";
 import NewComm from "./NewComm";
 import NewContact from "./NewContact";
 import CommInfo from "./CommInfo";
@@ -90,7 +90,7 @@ const getComms = async (commsArray) => {
       <Link to="/">HOMEPAGE</Link>
       {contacts.map((info, index) => {
         return (
-          <CustomerInfo info={info} key={index} />
+          <ContactInfo info={info} key={index} />
         )})}
       <NewContact fetchCustomer={fetchCustomer} />
       <br />

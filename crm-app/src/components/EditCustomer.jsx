@@ -53,7 +53,10 @@ export default function CustomerDetail() {
       EDIT
       <form onSubmit={handleUpdate}>
       <label>Company Name</label>
-        <input name="name_company" value={customer.name_company} onChange={handleChange} />
+        <input
+          name="name_company"
+          value={customer.name_company}
+          onChange={handleChange} />
         <br />
         
       <label>Zip Code</label>

@@ -1,4 +1,4 @@
-function CustomerInfo(props) {
+function ContactInfo(props) {
   // console.log(props)
   return (
     <div key={props.info.id}>
@@ -11,4 +11,4 @@ function CustomerInfo(props) {
   )
 }
 
-export default CustomerInfo;
+export default ContactInfo;

@@ -56,6 +56,9 @@ const NewComm = (props) => {
     );
     console.log(res);
     setNameContacted("");
+    if (res.data.id) {
+      history.push(`/customers/${res.data.id}`);
+    }
     props.fetchCustomer();
   };
 
