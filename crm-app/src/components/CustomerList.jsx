@@ -32,8 +32,8 @@ function CustomerList() {
           <div key={info.id}>
           <Link to={`/customers/${info.id}`} >
           <h3>{info.fields.name_company}</h3>
-          <img src={info.fields.company_logo} />
-          </Link>
+              <img src={info.fields.company_logo} />
+              </Link>
             <p>Address: {info.fields.address}, {info.fields.state}, {info.fields.country}</p>
             <p>Account Manager: {info.fields.account_manager}</p>
           </div>

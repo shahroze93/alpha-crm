@@ -27,7 +27,7 @@ Customer Details
 <p>{info.fields.name_company_customers}</p>
 </div>
 
-Comm Detail
+Comm List
       {communication.map((info) => {
           return (
             <div key={info.id}>

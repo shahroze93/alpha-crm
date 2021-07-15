@@ -47,7 +47,7 @@ const NewComm = (props) => {
     const res = await axios.get(contactURL, {
       headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
     });
-    console.log(res.data.records);
+    // console.log(res.data.records);
     setDroplist2(res.data.records);
   }
 
@@ -78,7 +78,7 @@ const NewComm = (props) => {
     if (res.data.id) {
       history.push(`/customers/${res.data.id}`);
     }
-    props.fetchCustomer();
+    // props.fetchCustomer();
   };
 
   return (
@@ -86,30 +86,41 @@ const NewComm = (props) => {
       NEW COMMUNICATION FORM
       <form onSubmit={handleSubmit}>
         <label>Person Contacted</label>
+        <br />
         <select onChange={handleContactChange}> 
         <option value="⬇️ Select a Contact ⬇️"> -- Select Contact -- </option>
           {droplist2.map((contact) => <option key={contact.id} value={contact.id}>{contact.fields.name_contact} ({contact.fields.name_company_customers})</option>)}
         </select>
         <br />
+        
         <label>Company Name</label>
-        <select onChange={handleCompanyChange}> 
+        <br />
+        <select onChange={handleCompanyChange}>
         <option value="⬇️ Select a Company ⬇️"> -- Select Company -- </option>
           {droplist.map((company) => <option key={company.id} value={company.id}>{company.fields.name_company}</option>)}
         </select>
         <br />
+
         <label>Method of Contact</label>
+        <br />
         <input type="text" value={contact_method} onChange={(e) => setContactMethod(e.target.value)} />
         <br />
+
         <label>Topic of Discussion</label>
+        <br />
         <input type="text" value={topic_discussed} onChange={(e) => setTopicDiscussed(e.target.value)} />
         <br />
+
         <label>Expected Revenue</label>
+        <br />
         <input type="number" value={expected_revenue} onChange={(e) => setExpectedRevenue(e.target.valueAsNumber)} />
         <br />
+        
         <label>Notes</label>
+        <br />
         <input type="text" value={notes} onChange={(e) => setNotes(e.target.value)} />
         <br />
-        <button>Add Comm</button>
+        <button>Submit Communication</button>
       </form>
     </div>
   );

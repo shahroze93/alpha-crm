@@ -47,24 +47,37 @@ const NewCustomer = () => {
       NEW CUSTOMER FORM
       <form onSubmit={handleSubmit}>
         <label>Company Name</label>
+        <br />
         <input type="text" value={name_company} onChange={(e) => setNameCompany(e.target.value)} />
         <br />
+
         <label>Address</label>
+        <br />
         <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
         <br />
+
         <label>State</label>
+        <br />
         <input type="text" value={state} onChange={(e) => setState(e.target.value)} />
         <br />
+
         <label>Zipcode</label>
+        <br />
         <input type="number" value={zipcode} onChange={(e) => setZipcode(e.target.valueAsNumber)} />
         <br />
+
         <label>Country</label>
+        <br />
         <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} />
         <br />
+
         <label>Customer Type</label>
+        <br />
         <input type="text" value={customer_type} onChange={(e) => setCustomerType(e.target.value)} />
         <br />
+
         <label>Account Manager</label>
+        <br />
         <input type="text" value={account_manager} onChange={(e) => setAccountManager(e.target.value)} />
         <br />
         <button>Add Customer</button>

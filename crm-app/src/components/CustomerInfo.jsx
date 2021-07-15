@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function ContactInfo(props) {
   // console.log(props)
   return (
@@ -6,9 +8,10 @@ function ContactInfo(props) {
         <p>{props.info.fields.designation}</p>
         <p>{props.info.fields.phone}</p>
         <p>{props.info.fields.email}</p>
-        <p>{props.info.fields.name_company_customers}</p>
+      <Link to={`/customers/${props.info.fields.name_company}`} ><p>{props.info.fields.name_company_customers}</p></Link>
     </div>
   )
 }
 
 export default ContactInfo;
+

@@ -63,22 +63,32 @@ const NewContact = (props) => {
       NEW CONTACT FORM
       <form onSubmit={handleSubmit}>
         <label>Contact Name</label>
+        <br />
         <input type="text" value={name_contact} onChange={(e) => setNameContact(e.target.value)} />
         <br />
+        
         <label>Designation / Title / Position</label>
+        <br />
         <input type="text" value={designation} onChange={(e) => setDesignation(e.target.value)} />
         <br />
+        
         <label>Phone</label>
+        <br />
         <input type="number" value={phone} onChange={(e) => setPhone(e.target.value)} />
         <br />
+        
         <label>Email</label>
+        <br />
         <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
         <br />
+        
         <label>Company Name</label>
-        <select onChange={handleCompanyChange}> 
+        <br />
+        <select onChange={handleCompanyChange}>
         <option value="⬇️ Select a Company ⬇️"> -- Select Company -- </option>
           {droplist.map((company) => <option key={company.id} value={company.id}>{company.fields.name_company}</option>)}
         </select>
+        <br />
         <button>Add Contact</button>
       </form>
     </div>
