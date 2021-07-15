@@ -26,6 +26,7 @@ function ContactInfo(props) {
     }
     if (props.fetchCustomer) {
       props.fetchCustomer() // for CustomerDetail page refreshing
+      // props.setToggle(current => !current);
     }
   };
 

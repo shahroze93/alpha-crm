@@ -18,12 +18,15 @@ export default function CustomerDetail() {
   const [contacts, setContacts] = useState([]);
   const [comm, setComms] = useState([]);
   const { id } = useParams();
+  // const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
     fetchCustomer();
   }, []);
 
     const fetchCustomer = async () => {
+      setContacts([])
+      setComms([])    
     const customerURL = `${URL}/${id}`;
     const res = await axios.get(customerURL, {
       headers: {
