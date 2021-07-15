@@ -1,7 +1,7 @@
 function CommInfo(props) {
   return (
     <div key={props.info.id}>
-        <h4>Person Contacted: {props.info.fields.name_contacted}</h4>
+        <h4>Person Contacted: {props.info.fields.name_contact}</h4>
         <p>Company Name: {props.info.fields.name_company_customers}</p>
         <p>Method of Contact: {props.info.fields.contact_method}</p>
         <p>Topic of Discussion: {props.info.fields.topic_discussed}</p>
