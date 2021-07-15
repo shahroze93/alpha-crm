@@ -6,7 +6,7 @@ const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/contacts`;
-const customerURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`;
+const customerURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers?sort%5B0%5D%5Bfield%5D=name_company`;
 
 const NewContact = (props) => {
   const [name_contact, setNameContact] = useState("");
@@ -51,11 +51,16 @@ const NewContact = (props) => {
       }
     );
     console.log(res);
-    setNameContact("");
+      setNameContact("");
+      if (props.fetchData) {
+        props.fetchData() // for All contacts page refreshing
+      }
+      if (props.fetchCustomer) {
+        props.fetchCustomer() // for CustomerDetail page refreshing
+      }
     if (res.data.id) {
-      history.push(`/customers/${res.data.id}`);
+      history.push(`/customers/${name_company}`);
     }
-    props.fetchCustomer();
   };
 
   return (
@@ -74,7 +79,7 @@ const NewContact = (props) => {
         
         <label>Phone</label>
         <br />
-        <input type="number" value={phone} onChange={(e) => setPhone(e.target.value)} />
+        <input type="number" value={phone} onChange={(e) => setPhone(e.target.valueAsNumber)} />
         <br />
         
         <label>Email</label>

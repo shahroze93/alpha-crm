@@ -1,17 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
-
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
-
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`;
-
 export default function CustomerDetail() {
   const [customer, setCustomer] = useState({});
   const { id } = useParams();
   // console.log(id)
-
   useEffect(() => {
     fetchCustomer();
   }, []);
@@ -24,7 +20,6 @@ export default function CustomerDetail() {
     });
     setCustomer(res.data.fields);
   };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCustomer((prevCustomer) => ({
@@ -32,7 +27,6 @@ export default function CustomerDetail() {
       [name]: value,
     }));
   };
-
   const handleUpdate = async (e) => {
     e.preventDefault();
     const customerURL = `${URL}/${id}`;
@@ -47,18 +41,18 @@ export default function CustomerDetail() {
     );
     console.log(res);
   };
-
   return (
     <div>
       EDIT
       <form onSubmit={handleUpdate}>
       <label>Company Name</label>
+        <input name="name_company" value={customer.name_company} onChange={handleChange} />
         <input
           name="name_company"
           value={customer.name_company}
           onChange={handleChange} />
         <br />
-        
+
       <label>Zip Code</label>
         <input
           type="number"
@@ -72,7 +66,6 @@ export default function CustomerDetail() {
           }
         />
         <br />
-
         <label>Address</label>
         <input
           type="text"
@@ -81,7 +74,6 @@ export default function CustomerDetail() {
           onChange={handleChange}
         />
         <br />
-
         <label>State</label>
         <input
           type="text"
@@ -99,7 +91,6 @@ export default function CustomerDetail() {
           onChange={handleChange}
         />
         <br />
-
         <label>Company Type</label>
         <input
           type="text"
@@ -108,7 +99,6 @@ export default function CustomerDetail() {
           onChange={handleChange}
         />
         <br />
-
         <label>Account Manager</label>
         <input
           type="text"

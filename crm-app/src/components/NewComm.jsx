@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
+
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/communication`;
-const customerURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`;
-const contactURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/contacts`;
+const customerURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers?sort%5B0%5D%5Bfield%5D=name_company`;
+const contactURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/contacts?sort%5B0%5D%5Bfield%5D=name_company_customers`;
 
 const NewComm = (props) => {
   const [contactName, setNameContacted] = useState("");
@@ -73,12 +74,11 @@ const NewComm = (props) => {
         headers: { Authorization: `Bearer ${AIRTABLE_KEY}` },
       }
     );
-    console.log(res);
+    console.log(res.data);
     setNameContacted("");
-    if (res.data.id) {
-      history.push(`/customers/${res.data.id}`);
+    if (props.fetchCustomer) {
+      props.fetchCustomer() // for CustomerDetail page refreshing
     }
-    // props.fetchCustomer();
   };
 
   return (

@@ -16,6 +16,7 @@ const NewCustomer = () => {
   const [country, setCountry] = useState("");
   const [customer_type, setCustomerType] = useState("");
   const [account_manager, setAccountManager] = useState("");
+  const [company_logo, setCompanyLogo] = useState("");
   let history = useHistory();
   
   const handleSubmit = async (e) => {
@@ -28,6 +29,7 @@ const NewCustomer = () => {
       country,
       customer_type,
       account_manager,
+      company_logo
     };
     // console.log(fields)
     const res = await axios.post(
@@ -80,6 +82,12 @@ const NewCustomer = () => {
         <br />
         <input type="text" value={account_manager} onChange={(e) => setAccountManager(e.target.value)} />
         <br />
+
+        <label>Company Logo / Image</label>
+        <br />
+        <input type="text" value={company_logo} onChange={(e) => setCompanyLogo(e.target.value)} />
+        <br />
+
         <button>Add Customer</button>
       </form>
     </div>

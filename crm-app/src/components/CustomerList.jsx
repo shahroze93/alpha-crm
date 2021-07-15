@@ -7,7 +7,7 @@ import NewCustomer from './NewCustomer';
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 
-const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`
+const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers?sort%5B0%5D%5Bfield%5D=name_company`
 
 function CustomerList() {
   const [customers, setCustomers] = useState([]);
@@ -39,8 +39,7 @@ function CustomerList() {
           </div>
         )
       })}
-      <br />
-      <NewCustomer />
+    <Link to="/newCustomer"><h1>Add New Customer</h1></Link>
     </div>
   );
 }

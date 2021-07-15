@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import ContactInfo from "./CustomerInfo";
+import ContactInfo from "./ContactInfo";
 import NewComm from "./NewComm";
 import NewContact from "./NewContact";
 import CommInfo from "./CommInfo";
@@ -72,6 +72,7 @@ const getComms = async (commsArray) => {
   
   return (
     <div>
+      <img src={customer.fields?.company_logo} alt={customer.fields?.name_company} />
       <h2>{customer.fields?.name_company}</h2>
       <strong>Address:</strong>
       <p>{customer.fields?.address}</p>
@@ -85,14 +86,15 @@ const getComms = async (commsArray) => {
       <p>{customer.fields?.customer_type}</p>
       <strong>Account Manager:</strong>
       <p>{customer.fields?.account_manager}</p>
-      <Link to={`/editCustomer/${id}`}>Edit Customer</Link>
+      <Link to={`/editCustomer/${id}`}>EDIT CUSTOMER PROFILE</Link>
       <br />
       <Link to="/">HOMEPAGE</Link>
+      <br />
       {contacts.map((info, index) => {
         return (
-          <ContactInfo info={info} key={index} />
+          <ContactInfo fetchCustomer={fetchCustomer} info={info} key={index} />
         )})}
-      <NewContact fetchCustomer={fetchCustomer} />
+      <Link to="/newContact">ADD A CONTACT</Link>
       <br />
       {comm.map((info, index) => {
           return (

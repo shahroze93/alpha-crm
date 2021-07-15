@@ -14,8 +14,8 @@ function Navbar () {
       <Link to="/newCustomer">New Customer</Link>
       <br />
       <Link to="/newContact">New Contact</Link>
-      <br />
-      <Link to="/newCommunication">New Communication</Link>
+      {/* <br />
+      <Link to="/newCommunication">New Communication</Link> */}
     </nav>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from "axios";
-import CustomerInfo from './CustomerInfo';
+import ContactInfo from './ContactInfo';
   
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
@@ -28,7 +28,7 @@ function ContactList() {
       Contact List
       {contacts.map((info) => {
           return (
-            <CustomerInfo info={info} key={info.id} />
+            <ContactInfo fetchData={fetchData} info={info} key={info.id} />
         );
       }
       )}
