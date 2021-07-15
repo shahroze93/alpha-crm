@@ -4,7 +4,6 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import ContactInfo from "./ContactInfo";
 import NewComm from "./NewComm";
-import NewContact from "./NewContact";
 import CommInfo from "./CommInfo";
 
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
@@ -98,7 +97,7 @@ const getComms = async (commsArray) => {
       <br />
       {comm.map((info, index) => {
           return (
-        <CommInfo info={info} key={index} />
+        <CommInfo fetchCustomer={fetchCustomer} info={info} key={index} />
         );
       }
       )}
