@@ -17,7 +17,6 @@ const NewComm = (props) => {
   const [topic_discussed, setTopicDiscussed] = useState("");
   const [expected_revenue, setExpectedRevenue] = useState(0);
   const [notes, setNotes] = useState("");
-  
   const [droplist, setDroplist] = useState([]);
   
   useEffect(() => {
@@ -76,6 +75,9 @@ const NewComm = (props) => {
     setNameContacted("");
     if (props.fetchCustomer) {
       props.fetchCustomer() // for CustomerDetail page refreshing
+    }
+    if (props.fetchData) {
+      props.fetchData() // for Comms page refreshing
     }
   };
 

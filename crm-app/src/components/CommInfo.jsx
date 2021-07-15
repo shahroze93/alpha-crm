@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
@@ -8,7 +7,6 @@ const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/communication`;
 
 function CommInfo(props) {
-  let history = useHistory();
   const id = (props.info.id);
   // console.log(id)
   
@@ -35,7 +33,8 @@ function CommInfo(props) {
         <p>Method of Contact: {props.info.fields.contact_method}</p>
         <p>Topic of Discussion: {props.info.fields.topic_discussed}</p>
         <p>Expected Revenue: {props.info.fields.expected_revenue}</p>
-      <p>Notes: {props.info.fields.notes}</p>
+        <p>Notes: {props.info.fields.notes}</p>
+        <p>posted: {props.info.createdTime}</p>
       <button onClick={handleDelete}>Delete Communication</button>
   </div>
   )
