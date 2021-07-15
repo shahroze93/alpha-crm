@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
+import { useHistory } from "react-router-dom";
 
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
@@ -10,7 +11,13 @@ const customerURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers?sort
 
 export default function EditContact() {
   const [contact, setContact] = useState({});
+  const [name_contact, setNameContact] = useState("");
+  const [designation, setDesignation] = useState("");
+  const [phone, setPhone] = useState(1);
+  const [email, setEmail] = useState("");
+  const [name_company, setNameCompany] = useState([]);
   const { id } = useParams();
+  const history = useHistory();
   // console.log(id)
 
   useEffect(() => {
@@ -47,14 +54,27 @@ export default function EditContact() {
       ...prevContact,
       [name]: value,
     }));
+    setNameContact(contact.name_contact);
+    setDesignation(contact.designation);
+    setPhone(contact.phone);
+    setEmail(contact.email);;
+    setNameCompany([e.target.value])
   };
 
   const handleUpdate = async (e) => {
     e.preventDefault();
+    const fields = {
+      name_contact,
+      designation,
+      phone,
+      email,
+      name_company
+    };
     const contactURL = `${URL}/${id}`;
+    // console.log(contact)
     const res = await axios.put(
       contactURL,
-      { fields: contact },
+      { fields },
       {
         headers: {
           Authorization: `Bearer ${AIRTABLE_KEY}`,
@@ -62,6 +82,7 @@ export default function EditContact() {
       }
     );
     console.log(res);
+    history.push(`/customers/${name_company}`);
   };
 
   return (
@@ -105,25 +126,9 @@ export default function EditContact() {
         />
         <br />
         <label>Company Name</label>
-        <input
-          type="text"
-          value={contact.name_company}
-          name="name_company"
-          onChange={handleChange}
-        />
-        <br />
-        <input
-          type="text"
-          value={contact.name_company_customers}
-          name="name_company_customers"
-          onChange={handleChange}
-        />
-        <br />  
-        <label>Company Name</label>
         <select onChange={handleChange}>
-        <option value="⬇️ Select a Company ⬇️"> -- Select Company -- </option>
-          {droplist.map((company) => <option key={company.id} name="name_company_customers" value={company.id}>{company.fields.name_company}</option>)}
-        </select>
+          <option value={contact.name_company_customers}>{contact.name_company_customers}</option>
+          {droplist.map((company) => <option key={company.id} name="name_company" value={company.id}>{company.fields.name_company}</option>)}</select>
         <br />
         <button>Update Customer Information</button>
       </form>

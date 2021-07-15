@@ -92,6 +92,7 @@ const getComms = async (commsArray) => {
       <br />
       <Link to="/">HOMEPAGE</Link>
       <br />
+      <h1>Contacts</h1>
       {contacts.map((info, index) => {
         return (
           <div key={index}>
@@ -100,6 +101,7 @@ const getComms = async (commsArray) => {
         )})}
       <Link to="/newContact">ADD A CONTACT</Link>
       <br />
+      <h1>Communications</h1>
       {comm.map((info, index) => {
           return (
         <CommInfo fetchCustomer={fetchCustomer} info={info} key={index} />
