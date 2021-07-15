@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 
 
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
@@ -18,7 +17,6 @@ const NewComm = (props) => {
   const [topic_discussed, setTopicDiscussed] = useState("");
   const [expected_revenue, setExpectedRevenue] = useState(0);
   const [notes, setNotes] = useState("");
-  let history = useHistory();
   
   const [droplist, setDroplist] = useState([]);
   

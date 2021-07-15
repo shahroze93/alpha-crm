@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import { Link } from "react-router-dom"
-import NewCustomer from './NewCustomer';
+import DeleteCustomer from './DeleteCustomer';
   
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
@@ -27,16 +27,9 @@ function CustomerList() {
   return (
     <div>
       All Customers
-      {customers.map((info) => {
+      {customers.map((info, index) => {
         return (
-          <div key={info.id}>
-          <Link to={`/customers/${info.id}`} >
-          <h3>{info.fields.name_company}</h3>
-              <img src={info.fields.company_logo} />
-              </Link>
-            <p>Address: {info.fields.address}, {info.fields.state}, {info.fields.country}</p>
-            <p>Account Manager: {info.fields.account_manager}</p>
-          </div>
+          <DeleteCustomer fetchData={fetchData} info={info} key={index} />
         )
       })}
     <Link to="/newCustomer"><h1>Add New Customer</h1></Link>
