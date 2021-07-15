@@ -26,9 +26,11 @@ function CommList() {
   return (
     <div>
       Communication List
-      {communication.map((info, index) => {
-          return (
-          <CommInfo fetchData={fetchData} info={info} key={index} />
+      {communication.map((info) => {
+        return (
+          <div key={info.id} >
+          <CommInfo fetchData={fetchData} info={info}  />
+          </div>
         );
       }
       )}

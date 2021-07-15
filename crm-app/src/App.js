@@ -9,11 +9,14 @@ import EditCustomer from "./components/EditCustomer";
 import NewContact from "./components/NewContact";
 import CommList from "./components/CommList";
 import NewComm from "./components/NewComm";
+import EditContact from "./components/EditContact";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <header>
+        <Navbar />
+        </header>
       <br />
       <h1>WELCOME TO ALPHA CRM</h1>
       <Route exact path="/">
@@ -33,6 +36,9 @@ function App() {
       </Route>
       <Route path="/newContact">
         <NewContact />
+      </Route>
+      <Route path="/editContact/:id">
+        <EditContact />
       </Route>
       <Route exact path="/communication">
         <CommList />

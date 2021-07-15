@@ -42,7 +42,7 @@ const NewContact = (props) => {
       email,
       name_company
     };
-    console.log(fields)
+    // console.log(fields)
     const res = await axios.post(
       URL,
       { fields },

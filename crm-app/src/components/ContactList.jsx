@@ -27,8 +27,10 @@ function ContactList() {
     <div>
       Contact List
       {contacts.map((info) => {
-          return (
-            <ContactInfo fetchData={fetchData} info={info} key={info.id} />
+        return (
+          <div key={info.id} >
+            <ContactInfo fetchData={fetchData} info={info} />
+          </div>
         );
       }
       )}

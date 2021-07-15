@@ -7,7 +7,7 @@ function Navbar () {
       <p>ALPHA CRM</p>
       <Link to="/">All Customers</Link>
       <br />
-      <Link to="/contacts">All Contacts</Link>
+      <Link to="/contacts"><h3>All Contacts</h3></Link>
       <br />
       <Link to="/communication">All Communications</Link>
       <br />

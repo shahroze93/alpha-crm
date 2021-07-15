@@ -26,7 +26,6 @@ function ContactInfo(props) {
     }
     if (props.fetchCustomer) {
       props.fetchCustomer() // for CustomerDetail page refreshing
-      // props.setToggle(current => !current);
     }
   };
 
@@ -38,6 +37,8 @@ function ContactInfo(props) {
         <p>{props.info.fields.email}</p>
       <Link to={`/customers/${props.info.fields.name_company}`} ><p>{props.info.fields.name_company_customers}</p></Link>
       <button onClick={handleDelete}>Delete Contact</button>
+      <br />
+      <Link to={`/editContact/${props.info.id}`}>EDIT CONTACT</Link>
     </div>
   )
 }

@@ -94,7 +94,9 @@ const getComms = async (commsArray) => {
       <br />
       {contacts.map((info, index) => {
         return (
-          <ContactInfo fetchCustomer={fetchCustomer} info={info} key={index} />
+          <div key={index}>
+          <ContactInfo fetchCustomer={fetchCustomer} info={info} />
+          </div>
         )})}
       <Link to="/newContact">ADD A CONTACT</Link>
       <br />
