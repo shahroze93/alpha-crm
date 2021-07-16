@@ -1,3 +1,4 @@
+import "./CustomerDetail.css"
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
@@ -18,7 +19,6 @@ export default function CustomerDetail() {
   const [contacts, setContacts] = useState([]);
   const [comm, setComms] = useState([]);
   const { id } = useParams();
-  // const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
     fetchCustomer();
@@ -73,8 +73,12 @@ const getComms = async (commsArray) => {
 // console.log(comm)
   
   return (
-    <div>
+    <section>
       <h1>CUSTOMER PROFILE</h1>
+      <div className="parent"> 
+      <div className="div1">
+      
+      <div className="customerData">
       <img src={customer.fields?.company_logo} alt={customer.fields?.name_company} />
       <h2>{customer.fields?.name_company}</h2>
       <strong>Address:</strong>
@@ -89,19 +93,26 @@ const getComms = async (commsArray) => {
       <p>{customer.fields?.customer_type}</p>
       <strong>Account Manager:</strong>
       <p>{customer.fields?.account_manager}</p>
-      <Link to={`/editCustomer/${id}`}>EDIT CUSTOMER PROFILE</Link>
+      <Link to={`/editCustomer/${id}`} className="customerButtons" >EDIT CUSTOMER PROFILE</Link>
       <br />
-      <Link to="/">HOMEPAGE</Link>
-      <br />
+      <Link to="/" className="customerButtons" >HOMEPAGE</Link>
+      </div>
+          
+      <div className="contactData">
       <h1>Contacts</h1>
       {contacts.map((info, index) => {
         return (
-          <div key={index}>
+          <div className="customerContactDetails" key={index}>
           <ContactInfo fetchCustomer={fetchCustomer} info={info} />
           </div>
-        )})}
-      <Link to="/newContact">ADD A CONTACT</Link>
+        )
+      })}
       <br />
+      <Link to="/newContact" className="newContactButton" >ADD A CONTACT</Link>
+      </div>
+      </div>
+      
+      <div className="div2">
       <h1>Communications</h1>
       {comm.map((info, index) => {
           return (
@@ -109,7 +120,10 @@ const getComms = async (commsArray) => {
         );
       }
       )}
-      <NewComm fetchCustomer={fetchCustomer} />
-    </div>
+        <NewComm fetchCustomer={fetchCustomer} />
+        </div>
+
+        </div>
+    </section>
   );
 }

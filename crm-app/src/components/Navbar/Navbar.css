@@ -1,9 +1,5 @@
 .nav-links {
-  background: linear-gradient(
-    90deg,
-    rgb(110, 94, 254) 0%,
-    rgba(73, 63, 252, 1) 100%
-  );
+  background: linear-gradient(90deg, #473bb4 0%, #09043f 100%);
   display: flex;
   justify-content: center;
   height: 80px;
@@ -41,7 +37,7 @@
 
 .pagelinks:hover {
   background-color: rgb(127, 255, 0, 0.7);
-  border-radius: 5px;
+  border-radius: 30px;
   padding: 10px;
   transition: all 0.2s ease-out;
 }

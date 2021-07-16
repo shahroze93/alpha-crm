@@ -36,7 +36,7 @@ const DeleteCustomer = (props) => {
       <p>Account Manager: {props.info.fields.account_manager}</p>
     </div>
     <div className="customerBoxDelete" >
-      <button onClick={handleDelete}>Delete</button>
+      <button className="deleteButton" onClick={handleDelete}>DELETE</button>
     </div>
     </section>
   )

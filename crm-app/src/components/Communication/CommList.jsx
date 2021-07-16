@@ -1,3 +1,4 @@
+import "./Communication.css"
 import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from "axios";
@@ -27,16 +28,18 @@ function CommList() {
 
   return (
     <div>
-      <h1>Communication List</h1>
+      <h1>Sales Communications History</h1>
       <NewComm fetchData={fetchData} />
+      <section className="commList" >
       {communication.map((info) => {
         return (
-          <div key={info.id} >
+          <div className="comms" key={info.id} >
           <CommInfo fetchData={fetchData} info={info}  />
           </div>
         );
       }
       )}
+      </section>
     </div>
   );
 }

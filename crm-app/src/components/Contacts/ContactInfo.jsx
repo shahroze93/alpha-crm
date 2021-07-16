@@ -34,8 +34,10 @@ function ContactInfo(props) {
         <h4>{props.info.fields.name_contact}</h4>
         <label>Designation / Position: </label>
         <p>{props.info.fields.designation}</p>
-        <p>Phone: {props.info.fields.phone}</p>
-        <p>Email: {props.info.fields.email}</p>
+        <label>Phone:</label>  
+        <p>{props.info.fields.phone}</p>
+        <label>Email:</label>
+        <p>{props.info.fields.email}</p>
       <button onClick={handleDelete}>Delete Contact</button>
       <br />
       <Link to={`/editContact/${props.info.id}`}>EDIT CONTACT</Link>

@@ -1,3 +1,4 @@
+import "./Communication.css"
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -32,8 +33,9 @@ function CommInfo(props) {
         <Link to={`/customers/${props.info.fields.name_company}`} ><p>{props.info.fields.name_company_customers}</p></Link>  
         <p>Method of Contact: {props.info.fields.contact_method}</p>
         <p>Topic of Discussion: {props.info.fields.topic_discussed}</p>
-        <p>Expected Revenue: {props.info.fields.expected_revenue}</p>
-        <p>Notes: {props.info.fields.notes}</p>
+        <p>Expected Revenue: ${props.info.fields.expected_revenue}</p>
+        <label className="commHeader" >Notes:</label>
+        <p>{props.info.fields.notes}</p>
         <p>posted: {props.info.createdTime}</p>
       <button onClick={handleDelete}>Delete Communication</button>
       <br />

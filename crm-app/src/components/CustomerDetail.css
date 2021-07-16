@@ -1,0 +1,46 @@
+.parent {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  width: 70vw;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.customerData {
+  text-align: left;
+}
+
+.contactData {
+  text-align: left;
+}
+
+.customerContactDetails {
+}
+
+.div2 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+label {
+  font-weight: bold;
+}
+
+.newContactButton {
+  padding: 15px 30px;
+  border-radius: 45px;
+  font-size: 15px;
+  background-color: #463ab3;
+  color: white;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
