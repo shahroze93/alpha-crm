@@ -114,6 +114,18 @@ export default function EditCustomer() {
           onChange={handleChange}
         />
         <br />
+        
+      <label className="commFormLabel">Company Logo / Image URL</label>
+      <br />
+      <input
+        className="inputText"
+        type="text"
+        value={customer.company_logo}
+        name="company_logo"
+        onChange={handleChange}
+          />
+        <br />
+          
         <label className="commFormLabel">Account Manager</label>
         <br />
           <input

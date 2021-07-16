@@ -46,7 +46,7 @@ const NewCustomer = () => {
 
   return (
     <section className="NewCustomerSection">
-      <h1>New Customer Form</h1>
+      <h1>CREATE / ADD NEW CUSTOMER</h1>
       <div className="commDiv">
       <form className="commForm" onSubmit={handleSubmit}>
         <label className="commFormLabel">Company Name</label>
@@ -84,7 +84,7 @@ const NewCustomer = () => {
         <input className="inputText" type="text" value={account_manager} onChange={(e) => setAccountManager(e.target.value)} placeholder="Account Manager" />
         <br />
 
-        <label className="commFormLabel">Company Logo / Image</label>
+        <label className="commFormLabel">Company Logo / Image URL</label>
         <br />
         <input className="inputText" type="text" value={company_logo} onChange={(e) => setCompanyLogo(e.target.value)} placeholder="Image URL" />
         <br />

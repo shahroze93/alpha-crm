@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from "axios";
 import ContactInfo from './ContactInfo';
 import NewContact from './NewContact';
+import {Link} from "react-router-dom"
   
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
@@ -27,7 +28,7 @@ function ContactList() {
 
   return (
     <div>
-      <h1>Contact List</h1>
+      <h1>CONTACT LIST</h1>
       <div className="commFormContainer">
         <NewContact fetchData={fetchData} />
         </div>
@@ -41,6 +42,7 @@ function ContactList() {
       }
         )}
       </section>
+      <Link to="/" className="customerButtons" >HOMEPAGE</Link>
     </div>
   );
 }

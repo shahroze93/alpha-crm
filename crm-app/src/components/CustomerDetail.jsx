@@ -127,8 +127,9 @@ const getComms = async (commsArray) => {
       })}
       </div>
         </div>
-        <Link to="/" className="customerButtons" >HOMEPAGE</Link>
       </div>
+      <br />
+      <Link to="/" className="customerButtons" >HOMEPAGE</Link>
     </section>
   );
 }

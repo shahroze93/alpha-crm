@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from "axios";
 import CommInfo from './CommInfo';
 import NewComm from './NewComm';
+import { Link } from "react-router-dom";
   
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
@@ -28,7 +29,7 @@ function CommList() {
 
   return (
     <div>
-      <h1>Sales Communications History</h1>
+      <h1>SALES COMMUNICATIONS HISTORY</h1>
       <div className="commFormContainer">
       <NewComm fetchData={fetchData} />
       </div>
@@ -40,8 +41,10 @@ function CommList() {
           </div>
         );
       }
-      )}
+        )}
       </section>
+      <br />
+      <Link to="/" className="customerButtons" >HOMEPAGE</Link>
     </div>
   );
 }
