@@ -11,6 +11,7 @@ import CommList from "./components/Communication/CommList";
 import NewComm from "./components/Communication/NewComm";
 import EditContact from "./components/Edit/EditContact";
 import EditComm from "./components/Edit/EditComm";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <Navbar />
         </header>
       <br />
-      {/* <h1>WELCOME TO ALPHA CRM</h1> */}
+      <div className="main" >
       <Route exact path="/">
         <CustomerList />
       </Route>
@@ -49,7 +50,11 @@ function App() {
       </Route>
       <Route path="/editComm/:id">
         <EditComm />
-      </Route>
+        </Route>
+        </div>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

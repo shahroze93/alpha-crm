@@ -26,14 +26,14 @@ function CustomerList() {
   }
 
   return (
-    <div>
+    <div className="customerListContainer">
       {/* <h1>All Customers</h1> */}
       {customers.map((info, index) => {
         return (
           <DeleteCustomer fetchData={fetchData} info={info} key={index} />
         )
       })}
-    <Link to="/newCustomer"><h2 className="newCustomerButton" >ADD NEW CUSTOMER</h2></Link>
+        <Link to="/newCustomer"><h2 className="newCustomerButton" >ADD NEW CUSTOMER</h2></Link>
     </div>
   );
 }

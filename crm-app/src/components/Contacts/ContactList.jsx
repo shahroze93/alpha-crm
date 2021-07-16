@@ -42,6 +42,7 @@ function ContactList() {
       }
         )}
       </section>
+      <br />
       <Link to="/" className="customerButtons" >HOMEPAGE</Link>
     </div>
   );
