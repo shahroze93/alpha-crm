@@ -1,3 +1,4 @@
+import "./Customers.css"
 import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from "axios";
@@ -32,7 +33,7 @@ function CustomerList() {
           <DeleteCustomer fetchData={fetchData} info={info} key={index} />
         )
       })}
-    <Link to="/newCustomer"><h1>Add New Customer</h1></Link>
+    <Link to="/newCustomer"><h2 className="newCustomerButton" >Add New Customer</h2></Link>
     </div>
   );
 }

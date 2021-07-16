@@ -1,3 +1,4 @@
+import "./Customers.css"
 import React from 'react'
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -23,15 +24,21 @@ const DeleteCustomer = (props) => {
   };
   
   return (
-        <div key={props.info.id}>
-          <Link to={`/customers/${props.info.id}`} >
-          <h3>{props.info.fields.name_company}</h3>
-              <img src={props.info.fields.company_logo} alt={props.info.fields.name_company} />
-              </Link>
-            <p>Address: {props.info.fields.address}, {props.info.fields.state}, {props.info.fields.country}</p>
-            <p>Account Manager: {props.info.fields.account_manager}</p>
-            <button onClick={handleDelete}>Delete</button>
+    <section className='customerBox' key={props.info.id}>
+    <div className="customerBoxImg" >        
+      <Link to={`/customers/${props.info.id}`} >
+        <h3>{props.info.fields.name_company}</h3>
+        <img src={props.info.fields.company_logo} alt={props.info.fields.name_company} />
+      </Link>
     </div>
+    <div className="customerBoxData">
+      <p>Address: {props.info.fields.address}, {props.info.fields.state}, {props.info.fields.country}</p>
+      <p>Account Manager: {props.info.fields.account_manager}</p>
+    </div>
+    <div className="customerBoxDelete" >
+      <button onClick={handleDelete}>Delete</button>
+    </div>
+    </section>
   )
 }
 

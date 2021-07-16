@@ -46,7 +46,7 @@ const NewCustomer = () => {
 
   return (
     <div>
-      NEW CUSTOMER FORM
+      <h1>NEW CUSTOMER FORM</h1>
       <form onSubmit={handleSubmit}>
         <label>Company Name</label>
         <br />
