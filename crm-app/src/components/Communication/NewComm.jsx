@@ -1,3 +1,4 @@
+import "./Communication.css"
 import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from "axios";
@@ -85,44 +86,46 @@ const NewComm = (props) => {
   return (
     <div>
       NEW COMMUNICATION FORM
-      <form onSubmit={handleSubmit}>
-        <label>Person Contacted</label>
+      <div className="commDiv">
+      <form className="commForm" onSubmit={handleSubmit}>
+        <label className="commFormLabel" >Person Contacted</label>
         <br />
-        <select onChange={handleContactChange}> 
+        <select className="selectOption" onChange={handleContactChange}> 
         <option value="⬇️ Select a Contact ⬇️"> -- Select Contact -- </option>
           {droplist2.map((contact) => <option key={contact.id} value={contact.id}>{contact.fields.name_contact} ({contact.fields.name_company_customers})</option>)}
         </select>
         <br />
         
-        <label>Company Name</label>
+        <label className="commFormLabel">Company Name</label>
         <br />
-        <select onChange={handleCompanyChange}>
+        <select className="selectOption" onChange={handleCompanyChange}>
         <option value="⬇️ Select a Company ⬇️"> -- Select Company -- </option>
           {droplist.map((company) => <option key={company.id} value={company.id}>{company.fields.name_company}</option>)}
         </select>
         <br />
 
-        <label>Method of Contact</label>
+        <label className="commFormLabel">Method of Contact</label>
         <br />
-        <input type="text" value={contact_method} onChange={(e) => setContactMethod(e.target.value)} />
-        <br />
-
-        <label>Topic of Discussion</label>
-        <br />
-        <input type="text" value={topic_discussed} onChange={(e) => setTopicDiscussed(e.target.value)} />
+        <input className="inputText" type="text" value={contact_method} onChange={(e) => setContactMethod(e.target.value)} placeholder="Method" />
         <br />
 
-        <label>Expected Revenue</label>
+        <label className="commFormLabel">Topic of Discussion</label>
         <br />
-        <input type="number" value={expected_revenue} onChange={(e) => setExpectedRevenue(e.target.valueAsNumber)} />
+        <input className="inputText" type="text" value={topic_discussed} onChange={(e) => setTopicDiscussed(e.target.value)} placeholder="Topic" />
+        <br />
+
+        <label className="commFormLabel">Expected Revenue</label>
+        <br />
+        <input className="inputText" type="number" value={expected_revenue} onChange={(e) => setExpectedRevenue(e.target.valueAsNumber)} />
         <br />
         
-        <label>Notes</label>
+        <label className="commFormLabel">Notes</label>
         <br />
-        <input type="text" value={notes} onChange={(e) => setNotes(e.target.value)} />
+        <textarea className="inputText" type="text" value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Type your notes here" />
         <br />
-        <button>Submit Communication</button>
-      </form>
+        <button className="submitForm" >SUBMIT</button>
+        </form>
+        </div>
     </div>
   );
 }

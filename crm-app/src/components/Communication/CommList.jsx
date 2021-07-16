@@ -29,7 +29,9 @@ function CommList() {
   return (
     <div>
       <h1>Sales Communications History</h1>
+      <div className="commFormContainer">
       <NewComm fetchData={fetchData} />
+      </div>
       <section className="commList" >
       {communication.map((info) => {
         return (

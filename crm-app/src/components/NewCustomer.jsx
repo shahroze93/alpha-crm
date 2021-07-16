@@ -46,46 +46,46 @@ const NewCustomer = () => {
 
   return (
     <div>
-      <h1>NEW CUSTOMER FORM</h1>
+      <h1>New Customer Form</h1>
       <form onSubmit={handleSubmit}>
         <label>Company Name</label>
         <br />
-        <input type="text" value={name_company} onChange={(e) => setNameCompany(e.target.value)} />
+        <input type="text" value={name_company} onChange={(e) => setNameCompany(e.target.value)} placeholder="Name" />
         <br />
 
         <label>Address</label>
         <br />
-        <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
+        <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Address" />
         <br />
 
         <label>State</label>
         <br />
-        <input type="text" value={state} onChange={(e) => setState(e.target.value)} />
+        <input type="text" value={state} onChange={(e) => setState(e.target.value)} placeholder="State" />
         <br />
 
         <label>Zipcode</label>
         <br />
-        <input type="number" value={zipcode} onChange={(e) => setZipcode(e.target.valueAsNumber)} />
+        <input type="number" value={zipcode} onChange={(e) => setZipcode(e.target.valueAsNumber)}placeholder="Zip Code" />
         <br />
 
         <label>Country</label>
         <br />
-        <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} />
+        <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="Country" />
         <br />
 
         <label>Customer Type</label>
         <br />
-        <input type="text" value={customer_type} onChange={(e) => setCustomerType(e.target.value)} />
+        <input type="text" value={customer_type} onChange={(e) => setCustomerType(e.target.value)} placeholder="Type" />
         <br />
 
         <label>Account Manager</label>
         <br />
-        <input type="text" value={account_manager} onChange={(e) => setAccountManager(e.target.value)} />
+        <input type="text" value={account_manager} onChange={(e) => setAccountManager(e.target.value)} placeholder="Account Manager" />
         <br />
 
         <label>Company Logo / Image</label>
         <br />
-        <input type="text" value={company_logo} onChange={(e) => setCompanyLogo(e.target.value)} />
+        <input type="text" value={company_logo} onChange={(e) => setCompanyLogo(e.target.value)} placeholder="Image URL" />
         <br />
 
         <button>Add Customer</button>

@@ -69,22 +69,22 @@ const NewContact = (props) => {
       <form onSubmit={handleSubmit}>
         <label>Contact Name</label>
         <br />
-        <input type="text" value={name_contact} onChange={(e) => setNameContact(e.target.value)} />
+        <input type="text" value={name_contact} onChange={(e) => setNameContact(e.target.value)} placeholder="Name" />
         <br />
         
         <label>Designation / Title / Position</label>
         <br />
-        <input type="text" value={designation} onChange={(e) => setDesignation(e.target.value)} />
+        <input type="text" value={designation} onChange={(e) => setDesignation(e.target.value)} placeholder="Title" />
         <br />
         
         <label>Phone</label>
         <br />
-        <input type="number" value={phone} onChange={(e) => setPhone(e.target.valueAsNumber)} />
+        <input type="number" value={phone} onChange={(e) => setPhone(e.target.valueAsNumber)} placeholder="Phone Number" />
         <br />
         
         <label>Email</label>
         <br />
-        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
         <br />
         
         <label>Company Name</label>
