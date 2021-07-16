@@ -1,3 +1,4 @@
+import './Contacts.css';
 import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from "axios";
@@ -28,14 +29,16 @@ function ContactList() {
     <div>
       <h1>Contact List</h1>
       <NewContact fetchData={fetchData} />
+      <section className="contactList" >
       {contacts.map((info) => {
         return (
-          <div key={info.id} >
+          <div className="contacts" key={info.id} >
             <ContactInfo fetchData={fetchData} info={info} />
           </div>
         );
       }
-      )}
+        )}
+      </section>
     </div>
   );
 }

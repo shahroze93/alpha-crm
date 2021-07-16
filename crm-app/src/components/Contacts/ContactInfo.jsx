@@ -1,3 +1,4 @@
+import "./Contacts.css"
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -29,11 +30,12 @@ function ContactInfo(props) {
 
   return (
     <div key={props.info.id}>
+        <Link to={`/customers/${props.info.fields.name_company}`} ><h3>{props.info.fields.name_company_customers}</h3></Link>
         <h4>{props.info.fields.name_contact}</h4>
+        <label>Designation / Position: </label>
         <p>{props.info.fields.designation}</p>
-        <p>{props.info.fields.phone}</p>
-        <p>{props.info.fields.email}</p>
-      <Link to={`/customers/${props.info.fields.name_company}`} ><p>{props.info.fields.name_company_customers}</p></Link>
+        <p>Phone: {props.info.fields.phone}</p>
+        <p>Email: {props.info.fields.email}</p>
       <button onClick={handleDelete}>Delete Contact</button>
       <br />
       <Link to={`/editContact/${props.info.id}`}>EDIT CONTACT</Link>
