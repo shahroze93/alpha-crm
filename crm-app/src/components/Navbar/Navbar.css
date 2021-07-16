@@ -1,4 +1,47 @@
 .nav-links {
+  background: linear-gradient(
+    90deg,
+    rgb(110, 94, 254) 0%,
+    rgba(73, 63, 252, 1) 100%
+  );
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  height: 80px;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.Alpha {
+  color: chartreuse;
+  justify-self: start;
+  margin-left: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  width: 75vw;
+  justify-content: end;
+  margin-right: 2%;
+  font-family: "Exo", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.pagelinks a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.pagelinks:hover {
+  background-color: rgb(127, 255, 0, 0.7);
+  border-radius: 5px;
+  padding: 10px;
+  transition: all 0.2s ease-out;
 }

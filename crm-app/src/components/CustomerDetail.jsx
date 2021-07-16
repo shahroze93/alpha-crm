@@ -74,6 +74,7 @@ const getComms = async (commsArray) => {
   
   return (
     <div>
+      <h1>CUSTOMER PROFILE</h1>
       <img src={customer.fields?.company_logo} alt={customer.fields?.name_company} />
       <h2>{customer.fields?.name_company}</h2>
       <strong>Address:</strong>
