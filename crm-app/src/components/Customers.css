@@ -67,3 +67,10 @@
   list-style: none;
   color: #463ab3;
 }
+
+.NewCustomerSection {
+  display: grid;
+  justify-content: center;
+  grid-gap: 10px;
+  margin-bottom: 10px;
+}

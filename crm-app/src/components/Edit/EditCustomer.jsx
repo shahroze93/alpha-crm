@@ -45,18 +45,23 @@ export default function EditCustomer() {
   };
 
   return (
-    <div>
-      EDIT
-      <form onSubmit={handleUpdate}>
-      <label>Company Name</label>
-        <input
+    <section className="NewCustomerSection" >
+      <h1>EDIT / UPDATE CUSTOMER PROFILE</h1>
+      <div className="commDiv">
+      <form className="commForm" onSubmit={handleUpdate}>
+      <label className="commFormLabel">Company Name</label>
+      <br />
+          <input
+          className="inputText"
           name="name_company"
           value={customer.name_company}
           onChange={handleChange} />
         <br />
 
-      <label>Zip Code</label>
-        <input
+      <label className="commFormLabel">Zip Code</label>
+      <br />
+          <input
+          className="inputText"
           type="number"
           value={customer.zipcode}
           name="zipcode"
@@ -68,16 +73,20 @@ export default function EditCustomer() {
           }
         />
         <br />
-        <label>Address</label>
-        <input
+        <label className="commFormLabel">Address</label>
+        <br />
+          <input
+          className="inputText"
           type="text"
           value={customer.address}
           name="address"
           onChange={handleChange}
         />
         <br />
-        <label>State</label>
-        <input
+        <label className="commFormLabel">State</label>
+        <br />
+          <input
+          className="inputText"
           type="text"
           value={customer.state}
           name="state"
@@ -85,32 +94,39 @@ export default function EditCustomer() {
         />
         <br />
         
-        <label>Country</label>
-        <input
+        <label className="commFormLabel">Country</label>
+        <br />
+          <input
+          className="inputText"
           type="text"
           value={customer.country}
           name="country"
           onChange={handleChange}
         />
         <br />
-        <label>Company Type</label>
-        <input
+        <label className="commFormLabel">Company Type</label>
+        <br />
+          <input
+          className="inputText"
           type="text"
           value={customer.customer_type}
           name="company_type"
           onChange={handleChange}
         />
         <br />
-        <label>Account Manager</label>
-        <input
+        <label className="commFormLabel">Account Manager</label>
+        <br />
+          <input
+          className="inputText"
           type="text"
           value={customer.account_manager}
           name="account_manager"
           onChange={handleChange}
         />
         <br />
-        <button>Update Customer Information</button>
-      </form>
-    </div>
+        <button className="submitForm">UPDATE</button>
+        </form>
+        </div>
+    </section>
   );
 }

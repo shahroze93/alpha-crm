@@ -45,52 +45,54 @@ const NewCustomer = () => {
   };
 
   return (
-    <div>
+    <section className="NewCustomerSection">
       <h1>New Customer Form</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Company Name</label>
+      <div className="commDiv">
+      <form className="commForm" onSubmit={handleSubmit}>
+        <label className="commFormLabel">Company Name</label>
         <br />
-        <input type="text" value={name_company} onChange={(e) => setNameCompany(e.target.value)} placeholder="Name" />
-        <br />
-
-        <label>Address</label>
-        <br />
-        <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Address" />
+        <input className="inputText" type="text" value={name_company} onChange={(e) => setNameCompany(e.target.value)} placeholder="Name" />
         <br />
 
-        <label>State</label>
+        <label className="commFormLabel">Address</label>
         <br />
-        <input type="text" value={state} onChange={(e) => setState(e.target.value)} placeholder="State" />
-        <br />
-
-        <label>Zipcode</label>
-        <br />
-        <input type="number" value={zipcode} onChange={(e) => setZipcode(e.target.valueAsNumber)}placeholder="Zip Code" />
+        <input className="inputText" type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Address" />
         <br />
 
-        <label>Country</label>
+        <label className="commFormLabel">State</label>
         <br />
-        <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="Country" />
-        <br />
-
-        <label>Customer Type</label>
-        <br />
-        <input type="text" value={customer_type} onChange={(e) => setCustomerType(e.target.value)} placeholder="Type" />
+        <input className="inputText" type="text" value={state} onChange={(e) => setState(e.target.value)} placeholder="State" />
         <br />
 
-        <label>Account Manager</label>
+        <label className="commFormLabel">Zipcode</label>
         <br />
-        <input type="text" value={account_manager} onChange={(e) => setAccountManager(e.target.value)} placeholder="Account Manager" />
-        <br />
-
-        <label>Company Logo / Image</label>
-        <br />
-        <input type="text" value={company_logo} onChange={(e) => setCompanyLogo(e.target.value)} placeholder="Image URL" />
+        <input className="inputText" type="number" value={zipcode} onChange={(e) => setZipcode(e.target.valueAsNumber)}placeholder="Zip Code" />
         <br />
 
-        <button>Add Customer</button>
-      </form>
-    </div>
+        <label className="commFormLabel">Country</label>
+        <br />
+        <input className="inputText" type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="Country" />
+        <br />
+
+        <label className="commFormLabel">Customer Type</label>
+        <br />
+        <input className="inputText" type="text" value={customer_type} onChange={(e) => setCustomerType(e.target.value)} placeholder="Type" />
+        <br />
+
+        <label className="commFormLabel">Account Manager</label>
+        <br />
+        <input className="inputText" type="text" value={account_manager} onChange={(e) => setAccountManager(e.target.value)} placeholder="Account Manager" />
+        <br />
+
+        <label className="commFormLabel">Company Logo / Image</label>
+        <br />
+        <input className="inputText" type="text" value={company_logo} onChange={(e) => setCompanyLogo(e.target.value)} placeholder="Image URL" />
+        <br />
+
+        <button className="submitForm" >CREATE</button>
+        </form>
+        </div>
+    </section>
   );
 }
 
