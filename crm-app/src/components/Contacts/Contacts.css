@@ -12,3 +12,46 @@
   text-align: center;
   flex-wrap: wrap;
 }
+
+.deleteContactButton {
+  padding: 5px 20px;
+  border-radius: 45px;
+  font-size: 15px;
+  background-color: #463ab3;
+  color: white;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  border: none;
+}
+
+.deleteContactButton:hover {
+  background-color: chartreuse;
+  color: #463ab3;
+}
+
+.editContactButton {
+  list-style: none;
+  text-decoration: none;
+  padding: 5px 35px;
+  border-radius: 45px;
+  font-size: 15px;
+  background-color: #463ab3;
+  color: white;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  margin-left: 10px;
+}
+
+.editContactButton:hover {
+  background-color: chartreuse;
+  color: #463ab3;
+}
+
+.companyNameHeader {
+  text-decoration: none;
+  list-style: none;
+  color: #463ab3;
+  font-weight: bold;
+  font-size: 20px;
+}

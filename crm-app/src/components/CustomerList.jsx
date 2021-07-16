@@ -33,7 +33,7 @@ function CustomerList() {
           <DeleteCustomer fetchData={fetchData} info={info} key={index} />
         )
       })}
-    <Link to="/newCustomer"><h2 className="newCustomerButton" >Add New Customer</h2></Link>
+    <Link to="/newCustomer"><h2 className="newCustomerButton" >ADD NEW CUSTOMER</h2></Link>
     </div>
   );
 }

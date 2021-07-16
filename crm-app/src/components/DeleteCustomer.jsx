@@ -26,8 +26,8 @@ const DeleteCustomer = (props) => {
   return (
     <section className='customerBox' key={props.info.id}>
     <div className="customerBoxImg" >        
-      <Link to={`/customers/${props.info.id}`} >
-        <h3>{props.info.fields.name_company}</h3>
+      <Link className="customerLink" to={`/customers/${props.info.id}`} >
+        <h2 >{props.info.fields.name_company}</h2>
         <img src={props.info.fields.company_logo} alt={props.info.fields.name_company} />
       </Link>
     </div>

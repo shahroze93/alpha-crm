@@ -30,17 +30,16 @@ function ContactInfo(props) {
 
   return (
     <div key={props.info.id}>
-        <Link to={`/customers/${props.info.fields.name_company}`} ><h3>{props.info.fields.name_company_customers}</h3></Link>
-        <h4>{props.info.fields.name_contact}</h4>
+        <Link className="companyNameHeader" to={`/customers/${props.info.fields.name_company}`} ><h3>{props.info.fields.name_company_customers}</h3></Link>
+        <h3>{props.info.fields?.name_contact}</h3>
         <label>Designation / Position: </label>
-        <p>{props.info.fields.designation}</p>
+        <p>{props.info.fields?.designation}</p>
         <label>Phone:</label>  
-        <p>{props.info.fields.phone}</p>
+        <p>{props.info.fields?.phone}</p>
         <label>Email:</label>
-        <p>{props.info.fields.email}</p>
-      <button onClick={handleDelete}>Delete Contact</button>
-      <br />
-      <Link to={`/editContact/${props.info.id}`}>EDIT CONTACT</Link>
+        <p>{props.info.fields?.email}</p>
+      <button className="deleteContactButton" onClick={handleDelete}>DELETE</button>
+      <Link className="editContactButton" to={`/editContact/${props.info.id}`}>EDIT</Link>
     </div>
   )
 }

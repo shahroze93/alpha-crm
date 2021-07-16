@@ -93,13 +93,12 @@ const getComms = async (commsArray) => {
       <p>{customer.fields?.customer_type}</p>
       <strong>Account Manager:</strong>
       <p>{customer.fields?.account_manager}</p>
-      <Link to={`/editCustomer/${id}`} className="customerButtons" >EDIT CUSTOMER PROFILE</Link>
       <br />
-      <Link to="/" className="customerButtons" >HOMEPAGE</Link>
+      <Link to={`/editCustomer/${id}`} className="customerButtons" >EDIT CUSTOMER PROFILE</Link>
       </div>
           
       <div className="contactData">
-      <h1>Contacts</h1>
+      <h1>Contacts & Info  <Link to="/newContact" className="customerButtons" >ADD A CONTACT</Link></h1>
       {contacts.map((info, index) => {
         return (
           <div className="customerContactDetails" key={index}>
@@ -108,21 +107,26 @@ const getComms = async (commsArray) => {
         )
       })}
       <br />
-      <Link to="/newContact" className="newContactButton" >ADD A CONTACT</Link>
       </div>
       </div>
       
+        
+
       <div className="div2">
       <h1>Communications</h1>
+      <div className="commCustomer">    
       {comm.map((info, index) => {
           return (
         <CommInfo fetchCustomer={fetchCustomer} info={info} key={index} />
         );
       }
       )}
-        <NewComm fetchCustomer={fetchCustomer} />
+      </div>
+          <NewComm fetchCustomer={fetchCustomer} />
+          <br />
+          <br />
+          <Link to="/" className="customerButtons" >HOMEPAGE</Link>
         </div>
-
         </div>
     </section>
   );
