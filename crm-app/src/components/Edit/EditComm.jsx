@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
@@ -75,14 +75,16 @@ export default function EditComm() {
   };
 
   return (
-    <div>
-      EDIT COMMUNICATION ENTRY
-      <form onSubmit={handleUpdate}>
-        <p>Contact Name: {communication.name_contact}</p>
-        <p>Customer: {communication.name_company_customers}</p>
-      
-        <label>Contact Method</label>
-        <input
+    <section className="NewCustomerSection">
+      <h1>EDIT / UPDATE COMMUNICATION ENTRY</h1>
+      <div className="commDiv">
+      <form className="commForm" onSubmit={handleUpdate}>
+        <h3>Contact Name: {communication.name_contact}</h3>
+        <h3>Customer: <Link to={`/customers/${communication.name_company}`} >{communication.name_company_customers}</Link></h3>
+        <label className="commFormLabel">Contact Method</label>
+        <br />
+          <input
+          className="inputText"
           type="text"
           value={communication.contact_method}
           name="contact_method"
@@ -90,8 +92,10 @@ export default function EditComm() {
         />
         <br />
 
-        <label>Topic Discussed</label>
-        <input
+        <label className="commFormLabel">Topic Discussed</label>
+        <br />
+          <input
+          className="inputText"
           type="text"
           value={communication.topic_discussed}
           name="topic_discussed"
@@ -99,8 +103,10 @@ export default function EditComm() {
         />
         <br />
 
-        <label>Expected Revenues</label>
-        <input
+        <label className="commFormLabel">Expected Revenues</label>
+        <br />
+          <input
+          className="inputText"
           type="number"
           value={communication.expected_revenue}
           name="expected_revenue"
@@ -113,16 +119,19 @@ export default function EditComm() {
         />
         <br />
 
-        <label>Notes</label>
-        <input
+        <label className="commFormLabel">Notes</label>
+        <br />
+          <input
+          className="inputText"
           type="text"
           value={communication.notes}
           name="notes"
           onChange={handleChange}
         />
         <br />
-        <button>Update Communication</button>
-      </form>
-    </div>
+        <button className="submitForm">UPDATE</button>
+        </form>
+        </div>
+    </section>
   );
 }

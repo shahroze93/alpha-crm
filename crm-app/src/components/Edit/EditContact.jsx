@@ -86,26 +86,33 @@ export default function EditContact() {
   };
 
   return (
-    <div>
-      EDIT
-      <form onSubmit={handleUpdate}>
-      <label>Contact Name</label>
-        <input
+    <section className="NewCustomerSection" >
+      <h1>EDIT / UPDATE CONTACT PROFILE</h1>
+      <div className="commDiv">
+      <form className="commForm" onSubmit={handleUpdate}>
+      <label className="commFormLabel">Contact Name</label>
+      <br />
+          <input
+          className="inputText"
           name="name_contact"
           value={contact.name_contact}
           onChange={handleChange} />
         <br />
 
-      <label>Designation / Title / Position</label>
-        <input
+      <label className="commFormLabel">Designation / Title / Position</label>
+      <br />
+          <input
+          className="inputText"
           type="text"
           value={contact.designation}
           name="designation"
           onChange={handleChange}
         />
         <br />
-        <label>Phone</label>
-        <input
+        <label className="commFormLabel">Phone</label>
+        <br />
+          <input
+          className="inputText"
           type="number"
           value={contact.phone}
           name="phone"
@@ -117,21 +124,25 @@ export default function EditContact() {
           }
         />
         <br />
-        <label>Email</label>
-        <input
+        <label className="commFormLabel">Email</label>
+        <br />
+          <input
+          className="inputText"
           type="text"
           value={contact.email}
           name="email"
           onChange={handleChange}
         />
         <br />
-        <label>Company Name</label>
-        <select onChange={handleChange}>
+        <label className="commFormLabel">Company Name</label>
+        <br />
+          <select className="selectOption" onChange={handleChange}>
           <option value={contact.name_company_customers}>{contact.name_company_customers}</option>
           {droplist.map((company) => <option key={company.id} name="name_company" value={company.id}>{company.fields.name_company}</option>)}</select>
         <br />
-        <button>Update Customer Information</button>
-      </form>
-    </div>
+        <button className="submitForm">UPDATE</button>
+        </form>
+        </div>
+    </section>
   );
 }
