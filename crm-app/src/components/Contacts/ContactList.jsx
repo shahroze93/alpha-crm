@@ -28,7 +28,9 @@ function ContactList() {
   return (
     <div>
       <h1>Contact List</h1>
-      <NewContact fetchData={fetchData} />
+      <div className="commFormContainer">
+        <NewContact fetchData={fetchData} />
+        </div>
       <section className="contactList" >
       {contacts.map((info) => {
         return (

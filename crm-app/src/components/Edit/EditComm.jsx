@@ -90,7 +90,7 @@ export default function EditComm() {
         />
         <br />
 
-        <label>Contact Method</label>
+        <label>Topic Discussed</label>
         <input
           type="text"
           value={communication.topic_discussed}

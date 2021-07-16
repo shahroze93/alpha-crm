@@ -114,7 +114,9 @@ const getComms = async (commsArray) => {
 
       <div className="div2">
       <h1>Communication History</h1>
+      <div className="CustomerNewComm">    
       <NewComm fetchCustomer={fetchCustomer} />
+      </div>
       <div className="commList">
       {comm.map((info, index) => {
         return (
@@ -124,11 +126,9 @@ const getComms = async (commsArray) => {
       );
       })}
       </div>
-          <br />
-          <br />
-          <Link to="/" className="customerButtons" >HOMEPAGE</Link>
         </div>
-        </div>
+        <Link to="/" className="customerButtons" >HOMEPAGE</Link>
+      </div>
     </section>
   );
 }

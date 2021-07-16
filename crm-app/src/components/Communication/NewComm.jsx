@@ -12,6 +12,7 @@ const customerURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers?sort
 const contactURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/contacts?sort%5B0%5D%5Bfield%5D=name_company_customers`;
 
 const NewComm = (props) => {
+  const [name_contacted, setContactName] = useState("");
   const [contactName, setNameContacted] = useState("");
   const [name_company, setNameCompany] = useState(""); 
   const [contact_method, setContactMethod] = useState("");
@@ -58,6 +59,7 @@ const NewComm = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const fields = {
+      name_contacted,
       contactName,
       contact_method,
       topic_discussed,
@@ -84,7 +86,7 @@ const NewComm = (props) => {
   };
 
   return (
-    <div>
+    <section className="NewCommSection">
       NEW COMMUNICATION FORM
       <div className="commDiv">
       <form className="commForm" onSubmit={handleSubmit}>
@@ -126,7 +128,7 @@ const NewComm = (props) => {
         <button className="submitForm" >SUBMIT</button>
         </form>
         </div>
-    </div>
+    </section>
   );
 }
 
