@@ -10,6 +10,7 @@ import NewContact from "./components/NewContact";
 import CommList from "./components/CommList";
 import NewComm from "./components/NewComm";
 import EditContact from "./components/EditContact";
+import EditComm from "./components/EditComm";
 
 function App() {
   return (
@@ -45,6 +46,9 @@ function App() {
       </Route>
       <Route path="/newCommunication">
         <NewComm />
+      </Route>
+      <Route path="/editComm/:id">
+        <EditComm />
       </Route>
     </div>
   );

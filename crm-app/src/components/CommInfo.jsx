@@ -36,6 +36,8 @@ function CommInfo(props) {
         <p>Notes: {props.info.fields.notes}</p>
         <p>posted: {props.info.createdTime}</p>
       <button onClick={handleDelete}>Delete Communication</button>
+      <br />
+      <Link to={`/editComm/${props.info.id}`}>EDIT COMMUNICATION</Link>
   </div>
   )
 }

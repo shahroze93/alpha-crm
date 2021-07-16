@@ -17,6 +17,7 @@ const NewComm = (props) => {
   const [topic_discussed, setTopicDiscussed] = useState("");
   const [expected_revenue, setExpectedRevenue] = useState(0);
   const [notes, setNotes] = useState("");
+  
   const [droplist, setDroplist] = useState([]);
   
   useEffect(() => {
