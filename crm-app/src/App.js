@@ -1,16 +1,16 @@
 import "./App.css";
 import { Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import CustomerList from "./components/CustomerList";
 import CustomerDetail from "./components/CustomerDetail"
 import NewCustomer from "./components/NewCustomer"
-import ContactList from "./components/ContactList"
-import EditCustomer from "./components/EditCustomer";
-import NewContact from "./components/NewContact";
-import CommList from "./components/CommList";
-import NewComm from "./components/NewComm";
-import EditContact from "./components/EditContact";
-import EditComm from "./components/EditComm";
+import ContactList from "./components/Contacts/ContactList"
+import EditCustomer from "./components/Edit/EditCustomer";
+import NewContact from "./components/Contacts/NewContact";
+import CommList from "./components/Communication/CommList";
+import NewComm from "./components/Communication/NewComm";
+import EditContact from "./components/Edit/EditContact";
+import EditComm from "./components/Edit/EditComm";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Navbar />
         </header>
       <br />
-      <h1>WELCOME TO ALPHA CRM</h1>
+      {/* <h1>WELCOME TO ALPHA CRM</h1> */}
       <Route exact path="/">
         <CustomerList />
       </Route>

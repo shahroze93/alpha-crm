@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import ContactInfo from "./ContactInfo";
-import NewComm from "./NewComm";
-import CommInfo from "./CommInfo";
+import ContactInfo from "./Contacts/ContactInfo";
+import NewComm from "./Communication/NewComm";
+import CommInfo from "./Communication/CommInfo";
 
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;

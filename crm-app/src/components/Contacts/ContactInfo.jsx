@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
@@ -9,7 +8,6 @@ const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/contacts`;
 
 function ContactInfo(props) {
   // console.log(props)
-  let history = useHistory();
   const id = (props.info.id);
   // console.log(id)
   

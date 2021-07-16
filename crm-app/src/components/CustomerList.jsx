@@ -26,7 +26,7 @@ function CustomerList() {
 
   return (
     <div>
-      All Customers
+      <h1>All Customers</h1>
       {customers.map((info, index) => {
         return (
           <DeleteCustomer fetchData={fetchData} info={info} key={index} />

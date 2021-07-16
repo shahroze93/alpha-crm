@@ -30,7 +30,7 @@ export default function EditComm() {
       {
       headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
     });
-    console.log(res.data.fields);
+    // console.log(res.data.fields);
     setCommunication(res.data.fields);
   }
 
@@ -59,8 +59,8 @@ export default function EditComm() {
       notes,
     };
     const communicationURL = `${URL}/${id}`;
-    console.log(communication)
-    console.log(fields)
+    // console.log(communication)
+    // console.log(fields)
     const res = await axios.put(
       communicationURL,
       { fields },
