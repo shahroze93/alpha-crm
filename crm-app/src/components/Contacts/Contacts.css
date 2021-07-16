@@ -27,6 +27,7 @@
 .deleteContactButton:hover {
   background-color: chartreuse;
   color: #463ab3;
+  transition: all 0.2s ease-out;
 }
 
 .editContactButton {
@@ -46,6 +47,7 @@
 .editContactButton:hover {
   background-color: chartreuse;
   color: #463ab3;
+  transition: all 0.2s ease-out;
 }
 
 .companyNameHeader {

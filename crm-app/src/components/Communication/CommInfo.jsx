@@ -29,17 +29,16 @@ function CommInfo(props) {
   
   return (
     <div key={props.info.id}>
-        <h4>Person Contacted: {props.info.fields.name_contact}</h4>
-        <Link to={`/customers/${props.info.fields.name_company}`} ><p>{props.info.fields.name_company_customers}</p></Link>  
-        <p>Method of Contact: {props.info.fields.contact_method}</p>
-        <p>Topic of Discussion: {props.info.fields.topic_discussed}</p>
-        <p>Expected Revenue: ${props.info.fields.expected_revenue}</p>
-        <label className="commHeader" >Notes:</label>
-        <p>{props.info.fields.notes}</p>
-        <p>posted: {props.info.createdTime}</p>
-      <button onClick={handleDelete}>Delete Communication</button>
-      <br />
-      <Link to={`/editComm/${props.info.id}`}>EDIT COMMUNICATION</Link>
+      
+      <p><label className="commHeader" >Person Contacted:</label> {props.info.fields.name_contact} &bull; <Link to={`/customers/${props.info.fields.name_company}`} >{props.info.fields.name_company_customers}</Link></p>
+      <p><label className="commHeader" >Method of Contact:</label> {props.info.fields.contact_method}</p>
+      <p><label className="commHeader" >Topic of Discussion:</label> {props.info.fields.topic_discussed}</p>
+      <p><label className="commHeader" >Expected Revenue:</label> ${props.info.fields.expected_revenue}</p>
+      <label className="commHeader" >Notes:</label>
+      <p>{props.info.fields.notes}</p>
+      <p><label className="commHeader" >Posted: </label>{props.info.createdTime}</p>
+      <button className="deleteCommButton" onClick={handleDelete}>DELETE</button>
+      <Link className="editCommButton" to={`/editComm/${props.info.id}`}>EDIT</Link>
   </div>
   )
 }

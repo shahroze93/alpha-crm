@@ -113,16 +113,17 @@ const getComms = async (commsArray) => {
         
 
       <div className="div2">
-      <h1>Communications</h1>
-      <div className="commCustomer">    
+      <h1>Communication History</h1>
+      <NewComm fetchCustomer={fetchCustomer} />
+      <div className="commList">
       {comm.map((info, index) => {
-          return (
+        return (
+        <div className="comms" key={info.id} >
         <CommInfo fetchCustomer={fetchCustomer} info={info} key={index} />
-        );
-      }
-      )}
+        </div>
+      );
+      })}
       </div>
-          <NewComm fetchCustomer={fetchCustomer} />
           <br />
           <br />
           <Link to="/" className="customerButtons" >HOMEPAGE</Link>
