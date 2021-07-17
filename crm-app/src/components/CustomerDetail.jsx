@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import ContactInfo from "./Contacts/ContactInfo";
 import NewComm from "./Communication/NewComm";
 import CommInfo from "./Communication/CommInfo";
+import Status from "../components/Status/Status.jsx";
 
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
@@ -18,6 +19,7 @@ export default function CustomerDetail() {
   const [customer, setCustomer] = useState({});
   const [contacts, setContacts] = useState([]);
   const [comm, setComms] = useState([]);
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -33,6 +35,7 @@ export default function CustomerDetail() {
         Authorization: `Bearer ${AIRTABLE_KEY}`,
       },
     });
+      // console.log(res.data)
       setCustomer(res.data);
       if (res.data.fields.contacts) {
         getContacts(res.data.fields.contacts);
@@ -93,8 +96,13 @@ const getComms = async (commsArray) => {
       <p>{customer.fields?.customer_type}</p>
       <strong>Account Manager:</strong>
       <p>{customer.fields?.account_manager}</p>
+      <strong>Account Status:</strong>
+      <h1>{customer.fields?.status}</h1>
       <br />
       <Link to={`/editCustomer/${id}`} className="customerButtons" >EDIT CUSTOMER PROFILE</Link>
+      <div className="statusDiv" >
+      <Status fetchCustomer={fetchCustomer} />
+      </div>
       </div>
           
       <div className="contactData">

@@ -14,6 +14,14 @@ h1 {
 
 @media screen and (max-width: 600px) {
   h1 {
-    font-size: large;
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 18px;
   }
 }

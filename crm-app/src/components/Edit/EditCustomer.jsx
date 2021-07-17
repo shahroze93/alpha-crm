@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { useHistory } from "react-router-dom";
+
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`;
@@ -25,7 +26,7 @@ export default function EditCustomer() {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target; 
     setCustomer((prevCustomer) => ({
       ...prevCustomer,
       [name]: value,

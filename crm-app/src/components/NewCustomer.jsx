@@ -17,10 +17,12 @@ const NewCustomer = () => {
   const [customer_type, setCustomerType] = useState("");
   const [account_manager, setAccountManager] = useState("");
   const [company_logo, setCompanyLogo] = useState("");
+  const [status, setStatus] = useState("New")
   let history = useHistory();
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus("New")
     const fields = {
       name_company,
       address,
@@ -29,7 +31,8 @@ const NewCustomer = () => {
       country,
       customer_type,
       account_manager,
-      company_logo
+      company_logo,
+      status
     };
     // console.log(fields)
     const res = await axios.post(
