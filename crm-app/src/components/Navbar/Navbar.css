@@ -1,43 +1,121 @@
-.nav-links {
-  background: linear-gradient(90deg, #473bb4 0%, #09043f 100%);
-  display: flex;
-  justify-content: center;
+nav {
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0 3%;
   height: 80px;
-  align-items: center;
-  font-size: 1.2rem;
+  background: linear-gradient(90deg, #473bb4 0%, #09043f 100%);
+  font-family: Roboto;
+  font-weight: bold;
 }
 
-.Alpha {
+nav .logo {
+  float: left;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
   color: chartreuse;
-  justify-self: start;
-  margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
+  font-size: 1.5rem;
 }
 
-.nav-menu {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-gap: 10px;
-  list-style: none;
-  text-align: center;
-  width: 70vw;
-  justify-content: end;
-  margin-right: 2%;
+nav .links {
+  float: right;
+  padding: 0;
+  margin: 0;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
   font-family: "Exo", sans-serif;
   font-weight: bold;
   font-size: 20px;
 }
 
-.pagelinks a {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
+nav .links li {
+  list-style: none;
 }
 
-.pagelinks:hover {
+nav .links a {
+  display: block;
+  padding: 1em;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+}
+
+#nav-toggle {
+  position: absolute;
+  top: -100px;
+}
+
+nav .icon-burger {
+  display: none;
+  float: right;
+}
+
+nav .icon-burger .line {
+  width: 30px;
+  height: 5px;
+  background-color: white;
+  margin: 5px;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+nav .links a:hover {
   background-color: rgb(127, 255, 0, 0.7);
   border-radius: 30px;
   padding: 10px;
   transition: all 0.2s ease-out;
+}
+
+@media screen and (max-width: 600px) {
+  nav .logo {
+    float: none;
+    width: auto;
+    justify-content: center;
+    font-size: 25x;
+  }
+  nav .links {
+    float: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 80px;
+    bottom: 100%;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+  }
+
+  nav .links a {
+    font-size: 22px;
+  }
+
+  nav .links a:hover {
+    margin-top: 10px;
+    background-color: rgba(127, 255, 0, 0.2);
+    color: chartreuse;
+    border-radius: 5px;
+    padding: 10px;
+    transition: none;
+  }
+
+  nav .icon-burger {
+    display: block;
+    margin-top: -60px;
+  }
+
+  nav :checked ~ .links {
+    bottom: 30%;
+  }
 }
