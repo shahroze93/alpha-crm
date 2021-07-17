@@ -58,9 +58,9 @@
 .deleteButton:hover {
   padding: 15px 30px;
   border-radius: 45px;
-  background-color: rgb(127, 255, 0, 0.7);
+  background-color: rgb(240, 67, 55);
   transition: all 0.2s ease-out;
-  color: #3b309d;
+  color: white;
   border: 3px solid #3b309d;
 }
 
@@ -75,4 +75,42 @@
   justify-content: center;
   grid-gap: 10px;
   margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  button.deleteButton {
+    display: none;
+  }
+
+  .customerBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .customerBoxImg {
+    font-size: small;
+  }
+
+  .customerBoxData {
+    font-size: small;
+    text-align: center;
+  }
+
+  Img {
+    max-width: 100px;
+  }
+
+  .newCustomerButton {
+    margin-left: 30%;
+    padding: 5px 15px;
+    border-radius: 45px;
+    font-size: 15px;
+    /* background-color: #463ab3;
+    color: white;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
+    width: 150px; */
+  }
 }

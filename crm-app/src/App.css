@@ -11,3 +11,9 @@ h1 {
   min-height: 100vh;
   margin-bottom: 11vh;
 }
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: large;
+  }
+}

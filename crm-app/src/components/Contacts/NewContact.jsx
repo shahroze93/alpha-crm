@@ -11,7 +11,7 @@ const customerURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers?sort
 const NewContact = (props) => {
   const [name_contact, setNameContact] = useState("");
   const [designation, setDesignation] = useState("");
-  const [phone, setPhone] = useState(1);
+  const [phone, setPhone] = useState(0);
   const [email, setEmail] = useState("");
   const [name_company, setNameCompany] = useState([]);
   const [droplist, setDroplist] = useState([]);

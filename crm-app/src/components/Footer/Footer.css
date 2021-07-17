@@ -17,3 +17,13 @@
   font-size: 1.2rem;
   font-family: "Roboto", sans-serif;
 }
+
+@media screen and (max-width: 600px) {
+  .footer {
+    font-size: small;
+  }
+
+  .footer a {
+    font-size: small;
+  }
+}

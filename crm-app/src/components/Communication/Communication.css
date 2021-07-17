@@ -6,6 +6,12 @@
   padding-left: 7%;
 }
 
+.comms:hover {
+  border: 2px solid #463ab3;
+  background-color: white;
+  transition: all 0.2s;
+}
+
 .commList {
   display: flex;
   justify-content: center;
@@ -30,8 +36,8 @@
 }
 
 .deleteCommButton:hover {
-  background-color: chartreuse;
-  color: #463ab3;
+  background-color: rgb(240, 67, 55);
+  color: white;
 }
 
 .editCommButton {
@@ -78,9 +84,14 @@
   margin-bottom: 8px;
   box-sizing: border-box;
   border: 0;
+  border-radius: 5px;
   border-bottom: 3px solid #4539b1;
   text-align: left;
   font-size: medium;
+}
+
+.inputText:hover {
+  background-color: #f5f6f7;
 }
 
 .selectOption {
@@ -90,8 +101,13 @@
   margin-bottom: 8px;
   box-sizing: border-box;
   border: 0;
+  border-radius: 5px;
   border-bottom: 3px solid #4539b1;
   text-align: left;
+}
+
+.selectOption:hover {
+  background-color: #f5f6f7;
 }
 
 .commFormLabel {
@@ -119,4 +135,32 @@
 
 .NewCommSection {
   text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .comms {
+    border-radius: 45px;
+    padding: 10px;
+    width: 60vw;
+    background-color: #f0f2f5;
+    padding-left: 7%;
+    font-size: small;
+  }
+
+  .editCommButton {
+    padding: 2px 15px;
+    font-size: smaller;
+  }
+
+  .deleteCommButton {
+    padding: 2px 15px;
+    font-size: smaller;
+  }
+
+  .submitForm {
+    padding: 5px 5px;
+    font-size: smaller;
+    justify-self: center;
+    width: 100px;
+  }
 }
