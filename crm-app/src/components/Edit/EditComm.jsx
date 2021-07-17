@@ -10,6 +10,7 @@ const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/communication`;
 
 export default function EditComm() {
   const [communication, setCommunication] = useState({});
+  const [name_contacted, setNameContact] = useState("");
   const [contactName, setNameContacted] = useState("");
   const [name_company, setNameCompany] = useState(""); 
   const [contact_method, setContactMethod] = useState("");
@@ -40,6 +41,7 @@ export default function EditComm() {
       ...prevContact,
       [name]: value,
     }));
+    setNameContact(communication.name_contacted)
     setNameContacted(communication.contactName)
     setNameCompany(communication.name_company)
     setContactMethod(communication.contact_method);
@@ -51,6 +53,7 @@ export default function EditComm() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     const fields = {
+      name_contacted,
       contactName,
       name_company,
       contact_method,

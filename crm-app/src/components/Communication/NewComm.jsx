@@ -19,6 +19,7 @@ const NewComm = (props) => {
   const [topic_discussed, setTopicDiscussed] = useState("");
   const [expected_revenue, setExpectedRevenue] = useState(0);
   const [notes, setNotes] = useState("");
+  const [toggle, setToggle] = useState(false);
   
   const [droplist, setDroplist] = useState([]);
   
@@ -54,9 +55,26 @@ const NewComm = (props) => {
 
   let handleContactChange = (e) => {
     setNameContacted([e.target.value])
+    setToggle(current => !current)
   }
 
+  useEffect(() => {
+    fetchName();
+  }, [toggle])
+
+  const fetchName = async () => {
+    // console.log(contactName)
+    const nameURL = `${URL}/${contactName}`;
+    const res = await axios.get(nameURL, {
+      headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
+    });
+    // console.log(res.data);
+    setContactName(res.data.fields?.name_contact)
+  }
+
+
   const handleSubmit = async (e) => {
+    // console.log(name_contacted)
     e.preventDefault();
     const fields = {
       name_contacted,
@@ -67,7 +85,7 @@ const NewComm = (props) => {
       notes,
       name_company
     };
-    console.log(fields)
+    // console.log(fields)
     const res = await axios.post(
       URL,
       { fields },
@@ -75,7 +93,7 @@ const NewComm = (props) => {
         headers: { Authorization: `Bearer ${AIRTABLE_KEY}` },
       }
     );
-    console.log(res.data);
+    // console.log(res.data);
     setNameContacted("");
     if (props.fetchCustomer) {
       props.fetchCustomer() // for CustomerDetail page refreshing

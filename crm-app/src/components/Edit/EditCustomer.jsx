@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
+import { useHistory } from "react-router-dom";
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`;
@@ -8,6 +9,7 @@ const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`;
 export default function EditCustomer() {
   const [customer, setCustomer] = useState([]);
   const { id } = useParams();
+  const history = useHistory();
   // console.log(id)
   useEffect(() => {
     fetchCustomer();
@@ -42,6 +44,7 @@ export default function EditCustomer() {
       }
     );
     console.log(res);
+    history.push(`/`);
   };
 
   return (

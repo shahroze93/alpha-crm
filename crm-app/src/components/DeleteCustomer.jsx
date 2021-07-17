@@ -22,7 +22,7 @@ const DeleteCustomer = (props) => {
     console.log(res);
     props.fetchData()
   };
-  
+
   return (
     <section className='customerBox' key={props.info.id}>
     <div className="customerBoxImg" >        

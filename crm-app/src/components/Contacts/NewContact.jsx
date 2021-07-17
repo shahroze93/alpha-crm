@@ -50,7 +50,7 @@ const NewContact = (props) => {
         headers: { Authorization: `Bearer ${AIRTABLE_KEY}` },
       }
     );
-    console.log(res);
+    // console.log(res);
       setNameContact("");
       if (props.fetchData) {
         props.fetchData() // for All contacts page refreshing
@@ -64,7 +64,7 @@ const NewContact = (props) => {
   };
 
   return (
-    <section className="NewContactSection" >
+    <section className="NewCustomerSection" >
       CREATE CONTACT FORM
       <div className="commDiv">
       <form className="commForm" onSubmit={handleSubmit}>
