@@ -1,10 +1,14 @@
 import "./App.css";
+import React, { useState } from "react";
+import {ThemeProvider} from "styled-components";
+import { GlobalStyles } from "./components/DarkMode/GlobalStyles";
+import { lightTheme, darkTheme } from "./components/DarkMode/Themes"
 import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import CustomerList from "./components/CustomerList";
+// import CustomerList from "./components/CustomerList";
 import CustomerDetail from "./components/CustomerDetail"
 import NewCustomer from "./components/NewCustomer"
-import ContactList from "./components/Contacts/ContactList"
+// import ContactList from "./components/Contacts/ContactList"
 import EditCustomer from "./components/Edit/EditCustomer";
 import NewContact from "./components/Contacts/NewContact";
 import CommList from "./components/Communication/CommList";
@@ -17,8 +21,16 @@ import ContactSearch from "./components/Contacts/ContactSearch";
 
 
 function App() {
+  // Dark mode assistance taken from https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/#top
+  const [theme, setTheme] = useState('light');
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light')
+}
   return (
-    <div className="App">
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <>
+    <GlobalStyles/>
+      <div className="App">
       <header>
         <Navbar />
       </header>
@@ -58,9 +70,11 @@ function App() {
         </Route>
         </div>
       <footer>
-        <Footer />
+        <Footer themeToggler={themeToggler} />
       </footer>
-    </div>
+        </div>
+        </>
+    </ThemeProvider>
   );
 }
 export default App;
