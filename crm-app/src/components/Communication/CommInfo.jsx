@@ -11,7 +11,19 @@ function CommInfo(props) {
   const id = (props.info.id);
   // console.log(id)
   
-  const handleDelete = async () => {
+  const handleDelete = () => {
+    let entry = prompt("Please enter passcode to confirm DELETE:", "");
+    if (entry === null || entry === "") {
+      alert("NO INPUT - DELETION CANCELLED")
+    } else if (entry == "deleteconfirm") {
+      alert("DELETION COMPLETE")
+      handleDelete2();
+    } else {
+      alert("INCORRECT PASSCODE - TRY AGAIN TO CONFIRM")
+    }
+  }
+
+  const handleDelete2 = async () => {
     const communicationURL = `${URL}/${id}`;
     const res = await axios.delete(communicationURL, {
       headers: {
@@ -28,8 +40,7 @@ function CommInfo(props) {
   };
   
   return (
-    <div key={props.info.id}>
-      
+    <div className="contactCard" key={props.info.id}>
       <h2>Contact: {props.info.fields.name_contact} &bull; <Link to={`/customers/${props.info.fields.name_company}`} >{props.info.fields.name_company_customers}</Link></h2>
       <p><label className="commHeader" >Method of Contact:</label> {props.info.fields.contact_method}</p>
       <p><label className="commHeader" >Topic of Discussion:</label> {props.info.fields.topic_discussed}</p>

@@ -1,5 +1,8 @@
 .statusShow {
   text-align: left;
+  border-radius: 30px;
+  padding: 1px 10px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .statusForm {
@@ -36,7 +39,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   .statusShow {
     justify-content: center;
     text-align: center;

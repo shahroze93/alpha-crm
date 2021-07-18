@@ -76,7 +76,7 @@ nav .links a:hover {
   transition: all 0.2s ease-out;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   nav .logo {
     float: none;
     width: auto;

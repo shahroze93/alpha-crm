@@ -12,7 +12,19 @@ const DeleteCustomer = (props) => {
   // console.log(props)
   const id = (props.info.id);
   
-  const handleDelete = async () => {
+  const handleDelete = () => {
+    let entry = prompt("Please enter passcode to confirm DELETE:", "");
+    if (entry === null || entry === "") {
+      alert("NO INPUT - DELETION CANCELLED")
+    } else if (entry == "deleteconfirm") {
+      alert("DELETION COMPLETE")
+      handleDelete2();
+    } else {
+      alert("INCORRECT PASSCODE - TRY AGAIN TO CONFIRM")
+    }
+  }
+
+  const handleDelete2 = async () => {
   const customerURL = `${URL}/${id}`;
   const res = await axios.delete(customerURL, {
       headers: {
