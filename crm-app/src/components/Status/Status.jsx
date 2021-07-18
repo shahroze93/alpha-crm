@@ -63,8 +63,8 @@ return (
   <div className="statusShow">
   <h1>Progress Status</h1>
   <p>Update by selecting from below</p>
-  <form onSubmit={handleUpdate}>
-    <select name="status" className="selectOption" onChange={handleChange}>
+  <form className="statusForm" onSubmit={handleUpdate}>
+    <select name="status" className="selectStatus" onChange={handleChange}>
     <option value={customer.status}>{customer.status}</option>
     {progress.map((progress, index) => <option key={index} name="status" value={progress.value}>{progress.label}</option>)}</select>
     <br />

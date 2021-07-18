@@ -93,7 +93,7 @@ const NewComm = (props) => {
         headers: { Authorization: `Bearer ${AIRTABLE_KEY}` },
       }
     );
-    // console.log(res.data);
+    console.log(res.data);
     setNameContacted("");
     if (props.fetchCustomer) {
       props.fetchCustomer() // for CustomerDetail page refreshing

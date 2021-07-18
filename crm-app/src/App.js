@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <header>
         <Navbar />
-        </header>
+      </header>
       <br />
       <div className="main" >
       <Route exact path="/">

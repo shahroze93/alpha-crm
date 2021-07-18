@@ -12,7 +12,20 @@ function ContactInfo(props) {
   const id = (props.info.id);
   // console.log(id)
   
-  const handleDelete = async () => {
+  const handleDelete = () => {
+    let text;
+    let person = prompt("Please enter passcode to confirm DELETE:", "");
+    if (person === null || person === "") {
+      alert("NO INPUT - DELETION CANCELLED")
+    } else if (person == "deleteconfirm") {
+      alert("DELETION COMPLETE")
+      handleDelete2();
+    } else {
+      alert("INCORRECT PASSCODE - TRY AGAIN TO CONFIRM")
+    }
+  }
+
+  const handleDelete2 = async () => {
     const contactURL = `${URL}/${id}`;
     const res = await axios.delete(contactURL, {
       headers: {
