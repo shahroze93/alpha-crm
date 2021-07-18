@@ -72,9 +72,8 @@ const getComms = async (commsArray) => {
     setComms(prevState => ([...prevState, res.data]));
   })
 };
-  
-// console.log(comm)
-  
+  // console.log(comm)
+
   return (
     <section>
       <h1>CUSTOMER PROFILE</h1>
@@ -118,8 +117,6 @@ const getComms = async (commsArray) => {
       </div>
       </div>
       
-        
-
       <div className="div2">
       <h1>Communication History</h1>
       <div className="CustomerNewComm">    

@@ -46,6 +46,7 @@ const DeleteCustomer = (props) => {
     <div className="customerBoxData">
       <p>Address: {props.info.fields.address}, {props.info.fields.state}, {props.info.fields.country}</p>
       <p>Account Manager: {props.info.fields.account_manager}</p>
+      <p>Status: <strong>{props.info.fields.status}</strong></p>  
     </div>
     <div className="customerBoxDelete" >
       <button className="deleteButton" onClick={handleDelete}>DELETE</button>
