@@ -4,6 +4,7 @@ export const lightTheme = {
   toggleBorder: '#FFF',
   background: '#363537',
   customerBox: '#f5f6f7',
+  comLinks: '#363537',
 }
 export const darkTheme = {
   body: '#363537',

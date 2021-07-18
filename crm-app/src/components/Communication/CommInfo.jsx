@@ -41,7 +41,7 @@ function CommInfo(props) {
   
   return (
     <div className="contactCard" key={props.info.id}>
-      <h2>Contact: {props.info.fields.name_contact} &bull; <Link to={`/customers/${props.info.fields.name_company}`} >{props.info.fields.name_company_customers}</Link></h2>
+      <h2>Contact: {props.info.fields.name_contact} &bull; <Link className="commLinks" to={`/customers/${props.info.fields.name_company}`} >{props.info.fields.name_company_customers}</Link></h2>
       <p><label className="commHeader" >Method of Contact:</label> {props.info.fields.contact_method}</p>
       <p><label className="commHeader" >Topic of Discussion:</label> {props.info.fields.topic_discussed}</p>
       <p><label className="commHeader" >Expected Revenue:</label> ${props.info.fields.expected_revenue}</p>

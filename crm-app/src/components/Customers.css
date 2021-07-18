@@ -12,6 +12,10 @@
   max-width: 200px;
 }
 
+.customerName {
+  font-size: 25px;
+}
+
 .customerBoxImg {
   width: 200px;
   justify-content: start;
@@ -130,7 +134,7 @@
     text-align: center;
   }
 
-  Img {
+  img {
     max-width: 150px;
   }
 

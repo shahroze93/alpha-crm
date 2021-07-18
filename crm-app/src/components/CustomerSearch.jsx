@@ -56,7 +56,7 @@ function CustomerSearch() {
     <div className="customerListContainer">
       <label className="searchLabel" >SEARCH: </label>
       <input type="text" className="searchBar" onChange={(event) =>handleSearch(event)} placeholder="SEARCH" />
-      <Loader color={'#4539b1'} loading={loading} css={override} size={120} />
+      <Loader color={'#4539b1'} loading={loading} css={override} size={50} />
       {filteredData?.map((info, index) => {
         return (
           <DeleteCustomer fetchData={fetchData} info={info} key={index} />

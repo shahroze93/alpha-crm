@@ -12,6 +12,10 @@
   justify-content: space-evenly;
 }
 
+img {
+  max-width: 200px;
+}
+
 .customerData {
   text-align: left;
 }

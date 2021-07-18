@@ -15,6 +15,10 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.headers};
   }
 
+  .commLinks {
+    color: ${({ theme }) => theme.comLinks}
+  }
+
   h2, h1 {
     color: ${({ theme }) => theme.headers2};
   }  
