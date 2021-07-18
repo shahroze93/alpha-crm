@@ -11,7 +11,8 @@
   cursor: pointer;
 }
 
-.footer i {
+.footer i,
+a {
   text-decoration: none;
   list-style: none;
   color: white;

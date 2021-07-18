@@ -14,4 +14,5 @@ export const darkTheme = {
   headers2: '#7FFF00',
   a: '#FAFAFA',
   contentBox: '#191919',
+  customerBox: '#363537',
 }

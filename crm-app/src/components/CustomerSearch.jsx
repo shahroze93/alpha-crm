@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import axios from "axios";
 import { Link } from "react-router-dom"
 import DeleteCustomer from './DeleteCustomer';
+import { css } from "@emotion/react";
+import Loader from "react-spinners/RiseLoader";
+
   
 const AIRTABLE_KEY = process.env.REACT_APP_AIRTABLE_KEY;
 const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
@@ -13,6 +16,14 @@ const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers?sort%5B0%5D%
 function CustomerSearch() {
   const [customers, setCustomers] = useState([]);
   
+    // Loader added with assistance from https://github.com/davidhu2000/react-spinners
+    let [loading, setLoading] = useState(true);
+    const override = css`
+      display: block;
+      margin-top: 100px;
+      margin: 0 auto;
+    `;
+
   useEffect(() => {
     fetchData();
   }, [])
@@ -24,6 +35,7 @@ function CustomerSearch() {
     // console.log(res.data.records);
     setCustomers(res.data.records);
     setFilteredData(res.data.records)
+    setLoading(!loading)
   }
 
   // Assistance taken from https://levelup.gitconnected.com/how-to-search-filter-through-data-in-react-26f1545fe3a1
@@ -39,12 +51,12 @@ function CustomerSearch() {
     console.log(result)
     setFilteredData(result);
     }
-  
 
   return (
     <div className="customerListContainer">
       <label className="searchLabel" >SEARCH: </label>
       <input type="text" className="searchBar" onChange={(event) =>handleSearch(event)} placeholder="SEARCH" />
+      <Loader color={'#4539b1'} loading={loading} css={override} size={120} />
       {filteredData?.map((info, index) => {
         return (
           <DeleteCustomer fetchData={fetchData} info={info} key={index} />
