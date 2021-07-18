@@ -26,6 +26,7 @@ function CustomerSearch() {
     setFilteredData(res.data.records)
   }
 
+  // Assistance taken from https://levelup.gitconnected.com/how-to-search-filter-through-data-in-react-26f1545fe3a1
   const [filteredData,setFilteredData] = useState(customers);
 
   const handleSearch = (event) => {
@@ -42,8 +43,8 @@ function CustomerSearch() {
 
   return (
     <div className="customerListContainer">
-      <label>Search:</label>
-      <input type="text" onChange={(event) =>handleSearch(event)} />
+      <label className="searchLabel" >SEARCH: </label>
+      <input type="text" className="searchBar" onChange={(event) =>handleSearch(event)} placeholder="SEARCH" />
       {filteredData?.map((info, index) => {
         return (
           <DeleteCustomer fetchData={fetchData} info={info} key={index} />
