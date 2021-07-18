@@ -9,4 +9,8 @@ export const darkTheme = {
   text: '#FAFAFA',
   toggleBorder: '#6B8096',
   background: '#999',
+  headers: '#FAFAFA',
+  headers2: '#7FFF00',
+  a: '#FAFAFA',
+  contentBox: '#191919',
 }
