@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .customerBox {
-    background: ${({ theme }) => theme.body};
+    background: ${({ theme }) => theme.customerBox};
   }
 
   h3, a {

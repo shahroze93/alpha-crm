@@ -8,14 +8,14 @@
   align-items: center;
   font-size: 1.2rem;
   color: white;
+  cursor: pointer;
 }
 
-.footer a {
+.footer i {
   text-decoration: none;
   list-style: none;
   color: white;
-  font-size: 1.2rem;
-  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 650px) {

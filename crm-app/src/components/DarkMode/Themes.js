@@ -3,6 +3,7 @@ export const lightTheme = {
   text: '#363537',
   toggleBorder: '#FFF',
   background: '#363537',
+  customerBox: '#f5f6f7',
 }
 export const darkTheme = {
   body: '#363537',
