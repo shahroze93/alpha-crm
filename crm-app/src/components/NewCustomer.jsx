@@ -22,9 +22,14 @@ const NewCustomer = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("New")
+    // the code below was added so that all names can be regiestered in lower case for future search optimization
+    const searchname = name_company.toLowerCase().toString();
+    console.log(searchname)
+    const search_id = searchname
+    setStatus("New");
     const fields = {
       name_company,
+      search_id,
       address,
       state,
       zipcode,
@@ -32,9 +37,9 @@ const NewCustomer = () => {
       customer_type,
       account_manager,
       company_logo,
-      status
+      status,
     };
-    // console.log(fields)
+    console.log(fields)
     const res = await axios.post(
       URL,
       { fields },

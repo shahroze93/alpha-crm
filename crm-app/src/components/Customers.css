@@ -8,6 +8,10 @@
   min-height: 200px;
 }
 
+.logos {
+  max-width: 200px;
+}
+
 .customerBoxImg {
   width: 200px;
   justify-content: start;

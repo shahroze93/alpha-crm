@@ -17,7 +17,7 @@ function ContactInfo(props) {
     let entry = prompt("Please enter passcode to confirm DELETE:", "");
     if (entry === null || entry === "") {
       alert("NO INPUT - DELETION CANCELLED")
-    } else if (entry == "deleteconfirm") {
+    } else if (entry === "deleteconfirm") {
       alert("DELETION COMPLETE")
       handleDelete2();
     } else {

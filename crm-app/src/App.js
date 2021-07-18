@@ -12,6 +12,7 @@ import NewComm from "./components/Communication/NewComm";
 import EditContact from "./components/Edit/EditContact";
 import EditComm from "./components/Edit/EditComm";
 import Footer from "./components/Footer/Footer";
+import CustomerSearch from "./components/CustomerSearch";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
       <br />
       <div className="main" >
       <Route exact path="/">
-        <CustomerList />
+        {/* <CustomerList /> */}
+        <CustomerSearch />  
       </Route>
       <Route path="/newCustomer">
         <NewCustomer />

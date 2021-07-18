@@ -16,7 +16,7 @@ const DeleteCustomer = (props) => {
     let entry = prompt("Please enter passcode to confirm DELETE:", "");
     if (entry === null || entry === "") {
       alert("NO INPUT - DELETION CANCELLED")
-    } else if (entry == "deleteconfirm") {
+    } else if (entry === "deleteconfirm") {
       alert("DELETION COMPLETE")
       handleDelete2();
     } else {
@@ -40,7 +40,7 @@ const DeleteCustomer = (props) => {
     <div className="customerBoxImg" >        
       <Link className="customerLink" to={`/customers/${props.info.id}`} >
         <h2 >{props.info.fields.name_company}</h2>
-        <img src={props.info.fields.company_logo} alt={props.info.fields.name_company} />
+        <img className="logos" src={props.info.fields.company_logo} alt={props.info.fields.name_company} />
       </Link>
     </div>
     <div className="customerBoxData">
