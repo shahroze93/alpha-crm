@@ -13,6 +13,8 @@ import EditContact from "./components/Edit/EditContact";
 import EditComm from "./components/Edit/EditComm";
 import Footer from "./components/Footer/Footer";
 import CustomerSearch from "./components/CustomerSearch";
+import ContactSearch from "./components/Contacts/ContactSearch";
+
 
 function App() {
   return (
@@ -36,7 +38,8 @@ function App() {
         <CustomerDetail />
       </Route>
       <Route exact path="/contacts">
-        <ContactList />
+        {/* <ContactList /> */}
+        <ContactSearch /> 
       </Route>
       <Route path="/newContact">
         <NewContact />
