@@ -164,4 +164,8 @@
     align-items: center;
     width: 100px;
   }
+
+  .commLinks {
+    font-size: large;
+  }
 }

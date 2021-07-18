@@ -7,6 +7,10 @@ export const GlobalStyles = createGlobalStyle`
     transition: all 0.50s linear;
   }
 
+  .nav, .footer {
+    background: ${({ theme }) => theme.navbar};
+  }
+
   .customerBox {
     background: ${({ theme }) => theme.customerBox};
   }
@@ -36,6 +40,11 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .contacts:hover {
-    background: ${({ theme }) => theme.contentBox};
-    }
+  background: ${({ theme }) => theme.contentBox};
+  }
+
+  .comms {
+  background: ${({ theme }) => theme.body};
+  }
+
   `

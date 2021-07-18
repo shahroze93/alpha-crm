@@ -16,4 +16,5 @@ export const darkTheme = {
   a: '#FAFAFA',
   contentBox: '#191919',
   customerBox: '#363537',
+  navbar: 'linear-gradient(90deg, #191919 15%, #006400 110%)',
 }
