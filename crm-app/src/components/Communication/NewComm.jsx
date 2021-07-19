@@ -58,7 +58,6 @@ const NewComm = (props) => {
     const res = await axios.get(contactURL, {
       headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
     });
-    // console.log(res.data.records);
     setDroplist2(res.data.records);
   }
 
@@ -92,14 +91,13 @@ const NewComm = (props) => {
       notes,
       name_company
     };
-    const res = await axios.post(
+    await axios.post(
       URL,
       { fields },
       {
         headers: { Authorization: `Bearer ${AIRTABLE_KEY}` },
       }
     );
-    console.log(res.data);
     setNameContacted("");
     if (props.fetchCustomer) {
       props.fetchCustomer() // for CustomerDetail page refreshing

@@ -41,11 +41,9 @@ function ContactSearch() {
   const handleSearch = (event) => {
     let value = event.target.value.toLowerCase();
     let result = [];
-    console.log(value);
     result = contacts.filter((data) => {
     return data.fields.contact_id.search(value) !== -1;
     });
-    console.log(result)
     setFilteredData(result);
     }
 

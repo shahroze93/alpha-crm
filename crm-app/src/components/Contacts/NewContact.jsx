@@ -36,7 +36,6 @@ const NewContact = (props) => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       const searchname = name_contact.toLowerCase().toString();
-      console.log(searchname)
       const contact_id = searchname
     const fields = {
       name_contact,

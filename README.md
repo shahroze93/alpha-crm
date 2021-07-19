@@ -1,5 +1,7 @@
 # alpha-crm
 
+Link to site: https://alpha-crm.netlify.app/
+
 An App for Customer Relationship Management to track client, contacts and communication history
 
 ## Project Description
@@ -32,18 +34,26 @@ Here is a data sample from the customers table. I will access this table via get
 {
     "id": "recgfBEQyuflWGFnP",
     "fields": {
-        "client_logo": "https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png",
+        "company_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Dell_logo_2016.svg/150px-Dell_logo_2016.svg.png",
+        "country": "USA",
         "contacts": [
-            "recpOqhbgZREnyOdU"
+            "recpOqhbgZREnyOdU",
+            "recbe2uX3ojlArhrC"
         ],
+        "product_sold": "Components",
         "name_company": "Dell",
-        "address": "123 Street",
+        "address": "Round Rock",
         "zipcode": 12345,
-        "customer_type": "USA",
-        "account_manager": "John Doe",
-        "state": "NY",
+        "status": "Open",
+        "search_id": "dell",
+        "sales": "Monitors",
+        "customer_type": "Technology",
+        "account_manager": "Liam",
+        "state": "TX",
         "communication": [
-            "rec9dJ0Z4V4nNbUsU"
+            "rec9dJ0Z4V4nNbUsU",
+            "rectfo0wSAnwQMhMG",
+            "rec7ncZomyJYsOVqj"
         ]
     },
     "createdTime": "2021-07-13T10:34:55.000Z"
@@ -55,25 +65,25 @@ Here is a data sample from the contacts table. I will access this table via get 
 
 ```
 {
-    "records": [
-        {
-            "id": "recpOqhbgZREnyOdU",
-            "fields": {
-                "designation": "Purchase Manager",
-                "email": "janedoe@email.com",
-                "name_contact": "Jane Doe",
-                "name_company": [
-                    "recgfBEQyuflWGFnP"
-                ],
-                "phone": "123456789",
-                "name_company (from clients)": [
-                    "Dell"
-                ]
-            },
-            "createdTime": "2021-07-13T10:44:03.000Z"
-        }
-    ],
-    "offset": "recpOqhbgZREnyOdU"
+    "id": "recpOqhbgZREnyOdU",
+    "fields": {
+        "designation": "Purchase Manager",
+        "communication": [
+            "rec9dJ0Z4V4nNbUsU",
+            "rec7ncZomyJYsOVqj"
+        ],
+        "email": "Jane@email.com",
+        "name_contact": "Jane Doe",
+        "name_company": [
+            "recgfBEQyuflWGFnP"
+        ],
+        "contact_id": "jane doe",
+        "phone": 7635374538,
+        "name_company_customers": [
+            "Dell"
+        ]
+    },
+    "createdTime": "2021-07-13T10:44:03.000Z"
 }
 
 ```
@@ -82,26 +92,27 @@ Here is a data sample from the communications table. I will access this table vi
 
 ```
 {
-    "records": [
-        {
-            "id": "rec9dJ0Z4V4nNbUsU",
-            "fields": {
-                "name_company": [
-                    "recgfBEQyuflWGFnP"
-                ],
-                "notes": "Positive meeting. Will buy our software",
-                "contact_method": "phone",
-                "topic_discussed": "CRM purchase",
-                "expected_revenue": 10000,
-                "name_contacted": "Jane Doe",
-                "name_company (from clients)": [
-                    "Dell"
-                ]
-            },
-            "createdTime": "2021-07-13T10:44:05.000Z"
-        }
-    ],
-    "offset": "rec9dJ0Z4V4nNbUsU"
+    "id": "rec9dJ0Z4V4nNbUsU",
+    "fields": {
+        "name_company": [
+            "recgfBEQyuflWGFnP"
+        ],
+        "notes": "Positive meeting. Will buy our software",
+        "contact_method": "phone",
+        "topic_discussed": "CRM purchase",
+        "contactName": [
+            "recpOqhbgZREnyOdU"
+        ],
+        "expected_revenue": 10000,
+        "name_contacted": "Jane Doe",
+        "name_company_customers": [
+            "Dell"
+        ],
+        "name_contact": [
+            "Jane Doe"
+        ]
+    },
+    "createdTime": "2021-07-13T10:44:05.000Z"
 }
 
 ```
@@ -119,9 +130,9 @@ Here is a data sample from the communications table. I will access this table vi
 
 #### PostMVP
 
-- Delete posts from lists and CustomerDetails and airtable.
+- Delete & Edit posts from lists and CustomerDetails and airtable.
 - Search Customer
-- Create a Product Segment - Add, edit, delete products
+- Add Status Update
 - Dark Mode Theme
 
 ## Project Schedule
@@ -129,39 +140,47 @@ Here is a data sample from the communications table. I will access this table vi
 | Day     | Deliverable                                 | Status     |
 | ------- | ------------------------------------------- | ---------- |
 | July 13 | Proposal Approval / Airtable Setup          | Complete   |
-| July 14 | Component Creation / Get, post, Delete Data | Incomplete |
-| July 15 | Get, Post and Delete cont'd /Basic CSS      | Incomplete |
-| July 16 | Grid, flexbox, responsive CSS / MVP         | Incomplete |
-| July 17 | additional CSS / Post-MVP                   | Incomplete |
+| July 14 | Component Creation / Get, post, Delete Data | Complete   |
+| July 15 | Get, Post and Delete cont'd /Basic CSS      | Complete   |
+| July 16 | Grid, flexbox, responsive CSS / MVP         | Complete   |
+| July 17 | additional CSS / Post-MVP                   | Complete   |
+| July 19 | Debugging and Deployment                    | Complete   |
 | July 20 | Presentations                               | Incomplete |
 
 ## Timeframes
 
 | Component                             | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------------------------- | :------: | :------------: | :-----------: | :---------: |
-| Proposal                              |    H     |      3hrs      |      hrs      |     hrs     |
-| Proposal Revision                     |    H     |      3hrs      |      hrs      |     hrs     |
-| Airtable setup                        |    H     |      2hrs      |      hrs      |     hrs     |
-| Navbar & Footer Components            |    H     |      2hrs      |      hrs      |     hrs     |
-| CustomerList Component                |    H     |      2hrs      |      hrs      |     hrs     |
-| CustomerDetail Component              |    H     |      3hrs      |      hrs      |     hrs     |
-| NewCustomer Component - Form          |    H     |      2hrs      |      hrs      |     hrs     |
-| NewCustomer creation/update           |    H     |      2hrs      |      hrs      |     hrs     |
-| EditCustomer - create/update          |    H     |      2hrs      |      hrs      |     hrs     |
-| ContactList Component                 |    H     |      2hrs      |      hrs      |     hrs     |
-| NewContact Component - Form           |    H     |      2hrs      |      hrs      |     hrs     |
-| NewContact Component - create/update  |    H     |      2hrs      |      hrs      |     hrs     |
-| EditContact Component - create/update |    H     |      3hrs      |      hrs      |     hrs     |
-| CommunicationList Component           |    H     |      2hrs      |      hrs      |     hrs     |
-| NewComm Component - Form              |    H     |      2hrs      |      hrs      |     hrs     |
-| NewComm Component - create/update     |    H     |      2hrs      |      hrs      |     hrs     |
-| EditComm Component - create/update    |    H     |      3hrs      |      hrs      |     hrs     |
-| CustomerList CSS                      |    H     |      2hrs      |      hrs      |     hrs     |
-| CustomerDetail CSS                    |    H     |      2hrs      |      hrs      |     hrs     |
-| Navbar & Footer CSS                   |    H     |      2hrs      |      hrs      |     hrs     |
-| Flexbox & CSS for MVP                 |    H     |      3hrs      |      hrs      |     hrs     |
-| Advanced CSS                          |    H     |      3hrs      |      hrs      |     hrs     |
-| Total                                 |    H     |     51hrs      |     00hrs     |    00hrs    |
+| Proposal                              |    H     |      3hrs      |     2hrs      |    2hrs     |
+| Proposal Revision                     |    H     |      3hrs      |     1hrs      |    1hrs     |
+| Airtable setup                        |    H     |      2hrs      |     2hrs      |    2hrs     |
+| Navbar & Footer Components            |    H     |      2hrs      |     2hrs      |    2hrs     |
+| CustomerList Component                |    H     |      2hrs      |     2hrs      |    2hrs     |
+| CustomerDetail Component              |    H     |      3hrs      |     3hrs      |    3hrs     |
+| NewCustomer Component - Form          |    H     |      2hrs      |     1hrs      |    1hrs     |
+| NewCustomer creation/update           |    H     |      2hrs      |     2hrs      |    2hrs     |
+| EditCustomer - create/update          |    H     |      2hrs      |     2hrs      |    2hrs     |
+| ContactList Component                 |    H     |      2hrs      |     2hrs      |    2hrs     |
+| NewContact Component - Form           |    H     |      2hrs      |     1hrs      |    1hrs     |
+| NewContact Component - create/update  |    H     |      2hrs      |     2hrs      |    2hrs     |
+| EditContact Component - create/update |    H     |      3hrs      |     2hrs      |    2hrs     |
+| CommunicationList Component           |    H     |      2hrs      |     2hrs      |    2hrs     |
+| NewComm Component - Form              |    H     |      2hrs      |     1hrs      |    1hrs     |
+| NewComm Component - create/update     |    H     |      2hrs      |     2hrs      |    2hrs     |
+| EditComm Component - create/update    |    H     |      3hrs      |     2hrs      |    3hrs     |
+| CustomerList CSS                      |    H     |      2hrs      |     2hrs      |    2hrs     |
+| CustomerDetail CSS                    |    H     |      2hrs      |     2hrs      |    2hrs     |
+| Navbar & Footer CSS                   |    H     |      2hrs      |     2hrs      |    2hrs     |
+| Flexbox & CSS for MVP                 |    H     |      3hrs      |     2hrs      |    2hrs     |
+| Advanced CSS                          |    H     |      3hrs      |     6hrs      |    6hrs     |
+| Debugging                             |    H     |      3hrs      |     6hrs      |    6hrs     |
+| Delete Function - Post MVP            |    H     |      2hrs      |     3hrs      |    3hrs     |
+| Delete Confirm Prompt - Post MVP      |    H     |      1hrs      |     1hrs      |    1hrs     |
+| Status Update - Post MVP              |    H     |      2hrs      |     2hrs      |    2hrs     |
+| Search Functions - Post MVP           |    H     |      2hrs      |     2hrs      |    2hrs     |
+| CSS DarkMode - Post MVP               |    H     |      2hrs      |     2hrs      |    2hrs     |
+| CSS Loader - Post MVP                 |    H     |      2hrs      |    0.5hrs     |   0.5hrs    |
+| Total                                 |    H     |     65hrs      |    61.5hrs    |   61.5hrs   |
 
 ## SWOT Analysis
 

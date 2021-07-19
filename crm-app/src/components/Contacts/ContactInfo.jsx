@@ -25,12 +25,11 @@ function ContactInfo(props) {
 
   const handleDelete2 = async () => {
     const contactURL = `${URL}/${id}`;
-    const res = await axios.delete(contactURL, {
+    await axios.delete(contactURL, {
       headers: {
         Authorization: `Bearer ${AIRTABLE_KEY}`,
       },
     });
-    console.log(res);
     if (props.fetchData) {
       props.fetchData() // for All contacts page refreshing
     }

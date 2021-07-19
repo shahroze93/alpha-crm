@@ -24,7 +24,6 @@ const NewCustomer = () => {
     e.preventDefault();
     // the code below was added so that all names can be regiestered in lower case for future search optimization
     const searchname = name_company.toLowerCase().toString();
-    console.log(searchname)
     const search_id = searchname
     setStatus("New");
     const fields = {
@@ -39,7 +38,6 @@ const NewCustomer = () => {
       company_logo,
       status,
     };
-    console.log(fields)
     const res = await axios.post(
       URL,
       { fields },
@@ -47,7 +45,6 @@ const NewCustomer = () => {
         headers: { Authorization: `Bearer ${AIRTABLE_KEY}` },
       }
     );
-    console.log(res);
     setNameCompany("");
     history.push(`/customers/${res.data.id}`);
   };

@@ -24,12 +24,11 @@ function CommInfo(props) {
 
   const handleDelete2 = async () => {
     const communicationURL = `${URL}/${id}`;
-    const res = await axios.delete(communicationURL, {
+    await axios.delete(communicationURL, {
       headers: {
         Authorization: `Bearer ${AIRTABLE_KEY}`,
       },
     });
-    console.log(res);
     if (props.fetchData) {
       props.fetchData() // for All communication page refreshing
     }

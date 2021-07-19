@@ -61,8 +61,6 @@ export default function EditContact () {
     }));
   };
 
-  console.log(formData)
-
   const handleUpdate = async (e) => {
     e.preventDefault();
     const fields = {

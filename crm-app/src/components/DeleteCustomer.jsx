@@ -25,12 +25,11 @@ const DeleteCustomer = (props) => {
 
   const handleDelete2 = async () => {
   const customerURL = `${URL}/${id}`;
-  const res = await axios.delete(customerURL, {
+  await axios.delete(customerURL, {
       headers: {
         Authorization: `Bearer ${AIRTABLE_KEY}`,
       },
   });
-    console.log(res);
     props.fetchData()
   };
 
