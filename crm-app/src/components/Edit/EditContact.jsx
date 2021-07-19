@@ -9,31 +9,38 @@ const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/contacts`;
 const customerURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers?sort%5B0%5D%5Bfield%5D=name_company`;
 
-export default function EditContact() {
-  const [contact, setContact] = useState({});
-  const [name_contact, setNameContact] = useState("");
-  const [designation, setDesignation] = useState("");
-  const [phone, setPhone] = useState(1);
-  const [email, setEmail] = useState("");
-  const [name_company, setNameCompany] = useState([]);
+export default function EditContact () {
   const { id } = useParams();
   const history = useHistory();
   // console.log(id)
 
+
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, [])
   
   const fetchData = async () => {
     const contactURL = `${URL}/${id}`;
     const res = await axios.get(contactURL,
       {
-      headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
+        headers: {
+          Authorization: `Bearer ${AIRTABLE_KEY}`
+        }
     });
-    // console.log(res.data.fields);
-    setContact(res.data.fields);
+    setFormData(res.data.fields);
   }
 
+  const data = {
+    name_contact: "",
+    designation: "",
+    phone: 0,
+    email: "",
+    name_company: "",
+  }
+
+  const [formData, setFormData] = useState({ data });
+  
   const [droplist, setDroplist] = useState([]);
   
   useEffect(() => {
@@ -50,25 +57,22 @@ export default function EditContact() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setContact((prevContact) => ({
+    setFormData((prevContact) => ({
       ...prevContact,
       [name]: value,
     }));
-    setNameContact(contact.name_contact);
-    setDesignation(contact.designation);
-    setPhone(contact.phone);
-    setEmail(contact.email);;
-    setNameCompany([e.target.value])
   };
+
+  console.log(formData)
 
   const handleUpdate = async (e) => {
     e.preventDefault();
     const fields = {
-      name_contact,
-      designation,
-      phone,
-      email,
-      name_company
+      name_contact: formData.name_contact,
+      designation: formData.designation,
+      phone: formData.phone,
+      email: formData.email,
+      name_company: formData.name_company,
     };
     const contactURL = `${URL}/${id}`;
     // console.log(contact)
@@ -82,7 +86,7 @@ export default function EditContact() {
       }
     );
     console.log(res);
-    history.push(`/customers/${name_company}`);
+    history.push(`/customers/${formData.name_company}`);
   };
 
   return (
@@ -95,7 +99,7 @@ export default function EditContact() {
           <input
           className="inputText"
           name="name_contact"
-          value={contact.name_contact}
+          value={formData.name_contact|| ""}
           onChange={handleChange} />
         <br />
 
@@ -104,7 +108,7 @@ export default function EditContact() {
           <input
           className="inputText"
           type="text"
-          value={contact.designation}
+          value={formData.designation|| ""}
           name="designation"
           onChange={handleChange}
         />
@@ -114,13 +118,13 @@ export default function EditContact() {
           <input
           className="inputText"
           type="number"
-          value={contact.phone}
+          value={formData.phone|| 0}
           name="phone"
           onChange={(e) =>
-            setContact((prevContact) => ({
+            setFormData((prevContact) => ({
               ...prevContact,
               phone: parseInt(e.target.value),
-            }))
+            }))|| 0
           }
         />
         <br />
@@ -129,7 +133,7 @@ export default function EditContact() {
           <input
           className="inputText"
           type="text"
-          value={contact.email}
+          value={formData.email|| ""}
           name="email"
           onChange={handleChange}
         />
@@ -137,8 +141,8 @@ export default function EditContact() {
         <label className="commFormLabel">Company Name</label>
         <br />
           <select className="selectOption" onChange={handleChange}>
-          <option value={contact.name_company_customers}>{contact.name_company_customers}</option>
-          {droplist.map((company) => <option key={company.id} name="name_company" value={company.id}>{company.fields.name_company}</option>)}</select>
+          <option value={formData.name_company_customers}>{formData.name_company_customers}</option>
+          {droplist.map((company) => <option key={company.id} name="name_company" value={company.id|| ""}>{company.fields.name_company}</option>)}</select>
         <br />
         <button className="submitForm">UPDATE</button>
         </form>
