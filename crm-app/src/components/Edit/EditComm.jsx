@@ -11,7 +11,6 @@ const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/communication`;
 export default function EditComm() {
   const { id } = useParams();
   const history = useHistory();
-  // console.log(id)
 
   useEffect(() => {
     fetchData();
@@ -24,7 +23,6 @@ export default function EditComm() {
       {
       headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
     });
-    // console.log(res.data.fields);
     setFormData(res.data.fields);
   }
 
@@ -51,9 +49,7 @@ export default function EditComm() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     const communicationURL = `${URL}/${id}`;
-    // console.log(communication)
-    // console.log(fields)
-    const res = await axios.put(
+    await axios.put(
       communicationURL,
       { fields: formData },
       {
@@ -62,7 +58,6 @@ export default function EditComm() {
         },
       }
     );
-    console.log(res);
     history.push(`/customers/${FormData.name_company}`);
   };
 

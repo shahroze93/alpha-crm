@@ -33,7 +33,6 @@ function CustomerSearch() {
     const res = await axios.get(URL, {
       headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
     });
-    // console.log(res.data.records);
     setCustomers(res.data.records);
     setFilteredData(res.data.records)
     setLoading(!loading)
@@ -45,11 +44,9 @@ function CustomerSearch() {
   const handleSearch = (event) => {
     let value = event.target.value.toLowerCase();
     let result = [];
-    console.log(value);
     result = customers.filter((data) => {
     return data.fields.search_id.search(value) !== -1;
     });
-    console.log(result)
     setFilteredData(result);
     }
 

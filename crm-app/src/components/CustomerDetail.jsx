@@ -36,7 +36,6 @@ export default function CustomerDetail() {
         Authorization: `Bearer ${AIRTABLE_KEY}`,
       },
     });
-      // console.log(res.data)
       setCustomer(res.data);
       if (res.data.fields.contacts) {
         getContacts(res.data.fields.contacts);
@@ -54,12 +53,9 @@ export default function CustomerDetail() {
         Authorization: `Bearer ${AIRTABLE_KEY}`,
       },
     });
-      // console.log(res.data)
       setContacts(prevState => ([...prevState, res.data]));
     })
   };
-  
-// console.log(contacts)
 
 const getComms = async (commsArray) => {
   commsArray.forEach (async comm => { 
@@ -69,11 +65,9 @@ const getComms = async (commsArray) => {
       Authorization: `Bearer ${AIRTABLE_KEY}`,
     },
   });
-    // console.log(res.data)
     setComms(prevState => ([...prevState, res.data]));
   })
 };
-  // console.log(comm)
 
   return (
     <section>

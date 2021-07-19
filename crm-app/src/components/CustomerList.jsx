@@ -21,13 +21,11 @@ function CustomerList() {
     const res = await axios.get(URL, {
       headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
     });
-    // console.log(res.data.records);
     setCustomers(res.data.records);
   }
 
   return (
     <div className="customerListContainer">
-      {/* <h1>All Customers</h1> */}
       {customers.map((info, index) => {
         return (
           <DeleteCustomer fetchData={fetchData} info={info} key={index} />

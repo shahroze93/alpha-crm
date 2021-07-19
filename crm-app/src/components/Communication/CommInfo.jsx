@@ -9,7 +9,6 @@ const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/communication`;
 
 function CommInfo(props) {
   const id = (props.info.id);
-  // console.log(id)
   
   const handleDelete = () => {
     let entry = prompt("Please enter passcode to confirm DELETE:", "");

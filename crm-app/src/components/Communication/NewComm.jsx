@@ -40,7 +40,6 @@ const NewComm = (props) => {
     const res = await axios.get(customerURL, {
       headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
     });
-    // console.log(res.data.records);
     setDroplist(res.data.records);
   }
 
@@ -74,18 +73,15 @@ const NewComm = (props) => {
   }, [toggle])
 
   const fetchName = async () => {
-    // console.log(contactName)
     const nameURL = `${URL}/${contactName}`;
     const res = await axios.get(nameURL, {
       headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
     });
-    // console.log(res.data);
     setContactName(res.data.fields?.name_contact)
   }
 
 
   const handleSubmit = async (e) => {
-    // console.log(name_contacted)
     e.preventDefault();
     const fields = {
       name_contacted,
@@ -96,7 +92,6 @@ const NewComm = (props) => {
       notes,
       name_company
     };
-    // console.log(fields)
     const res = await axios.post(
       URL,
       { fields },

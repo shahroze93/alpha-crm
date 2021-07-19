@@ -5,10 +5,8 @@ import { GlobalStyles } from "./components/DarkMode/GlobalStyles";
 import { lightTheme, darkTheme } from "./components/DarkMode/Themes"
 import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-// import CustomerList from "./components/CustomerList";
 import CustomerDetail from "./components/CustomerDetail"
 import NewCustomer from "./components/NewCustomer"
-// import ContactList from "./components/Contacts/ContactList"
 import EditCustomer from "./components/Edit/EditCustomer";
 import NewContact from "./components/Contacts/NewContact";
 import CommList from "./components/Communication/CommList";
@@ -37,7 +35,6 @@ function App() {
       <br />
       <div className="main" >
       <Route exact path="/">
-        {/* <CustomerList /> */}
         <CustomerSearch />  
       </Route>
       <Route path="/newCustomer">
@@ -50,7 +47,6 @@ function App() {
         <CustomerDetail />
       </Route>
       <Route exact path="/contacts">
-        {/* <ContactList /> */}
         <ContactSearch /> 
       </Route>
       <Route path="/newContact">

@@ -23,7 +23,6 @@ function ContactList() {
     const res = await axios.get(URL, {
       headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
     });
-    // console.log(res.data.records);
     setContacts(res.data.records);
   }
 

@@ -8,9 +8,7 @@ const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/contacts`;
 
 function ContactInfo(props) {
-  // console.log(props)
   const id = (props.info.id);
-  // console.log(id)
   
   // took assistance from: https://www.w3schools.com/js/tryit.asp?filename=tryjs_confirm
   const handleDelete = () => {

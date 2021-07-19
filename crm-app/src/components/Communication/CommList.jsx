@@ -23,7 +23,6 @@ function CommList() {
     const res = await axios.get(URL, {
       headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
     });
-    // console.log(res.data.records);
     setCommunication(res.data.records);
   }
 

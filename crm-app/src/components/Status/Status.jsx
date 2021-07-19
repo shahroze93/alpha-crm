@@ -32,7 +32,6 @@ const fetchCustomer = async () => {
       Authorization: `Bearer ${AIRTABLE_KEY}`,
     },
   });
-  // console.log(res.data.fields)
   setCustomer(res.data.fields);
 };
 

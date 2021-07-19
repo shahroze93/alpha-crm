@@ -12,7 +12,6 @@ const customerURL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers?sort
 export default function EditContact () {
   const { id } = useParams();
   const history = useHistory();
-  // console.log(id)
 
 
   useEffect(() => {
@@ -40,7 +39,7 @@ export default function EditContact () {
   }
 
   const [formData, setFormData] = useState({ data });
-  
+
   const [droplist, setDroplist] = useState([]);
   
   useEffect(() => {
@@ -51,7 +50,6 @@ export default function EditContact () {
     const res = await axios.get(customerURL, {
       headers: { Authorization: `Bearer ${AIRTABLE_KEY}` }
     });
-    // console.log(res.data.records);
     setDroplist(res.data.records);
   }
 
@@ -75,8 +73,7 @@ export default function EditContact () {
       name_company: formData.name_company,
     };
     const contactURL = `${URL}/${id}`;
-    // console.log(contact)
-    const res = await axios.put(
+    await axios.put(
       contactURL,
       { fields },
       {
@@ -85,7 +82,6 @@ export default function EditContact () {
         },
       }
     );
-    console.log(res);
     history.push(`/customers/${formData.name_company}`);
   };
 

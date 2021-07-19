@@ -11,7 +11,6 @@ export default function EditCustomer() {
   const [customer, setCustomer] = useState([]);
   const { id } = useParams();
   const history = useHistory();
-  // console.log(id)
   useEffect(() => {
     fetchCustomer();
     // eslint-disable-next-line
@@ -36,7 +35,7 @@ export default function EditCustomer() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     const customerURL = `${URL}/${id}`;
-    const res = await axios.put(
+    await axios.put(
       customerURL,
       { fields: customer },
       {
@@ -45,7 +44,6 @@ export default function EditCustomer() {
         },
       }
     );
-    console.log(res);
     history.push(`/`);
   };
 

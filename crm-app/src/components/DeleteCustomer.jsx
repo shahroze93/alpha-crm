@@ -9,7 +9,6 @@ const AIRTABLE_BASE = process.env.REACT_APP_AIRTABLE_BASE;
 const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/customers`
 
 const DeleteCustomer = (props) => {
-  // console.log(props)
   const id = (props.info.id);
   
   const handleDelete = () => {
