@@ -23,6 +23,7 @@ const Status = (props) => {
 
 useEffect(() => {
   fetchCustomer();
+  // eslint-disable-next-line
 }, []);
 const fetchCustomer = async () => {
   const customerURL = `${URL}/${id}`;

@@ -14,6 +14,7 @@ export default function EditCustomer() {
   // console.log(id)
   useEffect(() => {
     fetchCustomer();
+    // eslint-disable-next-line
   }, []);
   const fetchCustomer = async () => {
     const customerURL = `${URL}/${id}`;

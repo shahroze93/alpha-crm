@@ -13,10 +13,20 @@ const URL = `https://api.airtable.com/v0/${AIRTABLE_BASE}/contacts?sort%5B0%5D%5
 
 function ContactSearch() {
   const [contacts, setContacts] = useState([]);
-  
+  const [loading, setloading] = useState(true)
+
   useEffect(() => {
-    fetchData();
-  }, [])
+    let mounted = true
+    fetchData().then(() => {
+        if (mounted) {
+            setloading(false)
+        }
+    })
+
+    return function cleanup() {
+        mounted = false
+    }
+}, [])
   
   const fetchData = async () => {
     const res = await axios.get(URL, {
@@ -40,27 +50,28 @@ function ContactSearch() {
     setFilteredData(result);
     }
 
-  return (
+  return (<div>{loading ? <p>loading...</p> :
     <div>
       <h1>CONTACT LIST</h1>
       <div className="commFormContainer">
         <NewContact fetchData={fetchData} />
       </div>
       <label className="searchLabel" >SEARCH: </label>
-      <input type="text" className="searchBar" onChange={(event) =>handleSearch(event)} placeholder="SEARCH" />
+      <input type="text" className="searchBar" onChange={(event) => handleSearch(event)} placeholder="SEARCH" />
       <section className="contactList" >
-      {filteredData.map((info) => {
-        return (
-          <div className="contacts" key={info.id} >
-            <ContactInfo fetchData={fetchData} info={info} />
-          </div>
-        );
-      }
+        {filteredData.map((info) => {
+          return (
+            <div className="contacts" key={info.id} >
+              <ContactInfo fetchData={fetchData} info={info} />
+            </div>
+          );
+        }
         )}
       </section>
       <br />
       <Link to="/" className="customerButtons" >HOMEPAGE</Link>
     </div>
+  }</div>
   );
 }
 

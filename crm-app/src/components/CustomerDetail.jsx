@@ -24,6 +24,7 @@ export default function CustomerDetail() {
 
   useEffect(() => {
     fetchCustomer();
+    // eslint-disable-next-line
   }, []);
 
     const fetchCustomer = async () => {

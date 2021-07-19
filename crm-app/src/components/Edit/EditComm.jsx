@@ -23,6 +23,7 @@ export default function EditComm() {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, [])
   
   const fetchData = async () => {
@@ -89,7 +90,7 @@ export default function EditComm() {
           <input
           className="inputText"
           type="text"
-          value={communication.contact_method}
+          value={communication.contact_method} 
           name="contact_method"
           onChange={handleChange}
         />
