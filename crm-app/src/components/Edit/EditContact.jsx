@@ -69,6 +69,7 @@ export default function EditContact () {
       phone: formData.phone,
       email: formData.email,
       name_company: formData.name_company,
+      contact_id: formData.name_contact.toLowerCase(),
     };
     const contactURL = `${URL}/${id}`;
     await axios.put(
