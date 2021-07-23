@@ -46,7 +46,7 @@ const fetchCustomer = async () => {
 const handleUpdate = async (e) => {
   e.preventDefault();
   const customerURL = `${URL}/${id}`;
-  const res = await axios.put(
+  await axios.put(
     customerURL,
     { fields: customer },
     {
@@ -55,7 +55,6 @@ const handleUpdate = async (e) => {
       },
     }
   );
-  console.log(res);
   props.fetchCustomer();
 };
 
