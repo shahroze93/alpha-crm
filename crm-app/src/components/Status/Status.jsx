@@ -55,7 +55,6 @@ const handleUpdate = async (e) => {
       },
     }
   );
-  console.log(res);
   props.fetchCustomer();
 };
 
